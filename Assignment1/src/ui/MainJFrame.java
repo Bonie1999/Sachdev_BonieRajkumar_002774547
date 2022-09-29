@@ -4,6 +4,8 @@
  */
 package ui;
 
+import model.HumanResourceHistory;
+
 /**
  *
  * @author hp
@@ -13,8 +15,12 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
+    HumanResourceHistory history;
+    
     public MainJFrame() {
         initComponents();
+        
+        history = new HumanResourceHistory();
     }
 
     /**
@@ -32,11 +38,12 @@ public class MainJFrame extends javax.swing.JFrame {
         btnViewEmp = new javax.swing.JButton();
         btnUpdateEmp = new javax.swing.JButton();
         rightWorkArea = new javax.swing.JPanel();
+        lblTitle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Human Resource Management");
-        setMaximumSize(new java.awt.Dimension(800, 650));
-        setPreferredSize(new java.awt.Dimension(800, 650));
+        setMaximumSize(new java.awt.Dimension(800, 700));
+        setPreferredSize(new java.awt.Dimension(800, 700));
 
         btnAddEmp.setText("Add Employee");
         btnAddEmp.addActionListener(new java.awt.event.ActionListener() {
@@ -77,26 +84,35 @@ public class MainJFrame extends javax.swing.JFrame {
         leftControlPanelLayout.setVerticalGroup(
             leftControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(leftControlPanelLayout.createSequentialGroup()
-                .addGap(101, 101, 101)
+                .addGap(144, 144, 144)
                 .addComponent(btnAddEmp)
-                .addGap(94, 94, 94)
+                .addGap(101, 101, 101)
                 .addComponent(btnViewEmp)
-                .addGap(96, 96, 96)
+                .addGap(95, 95, 95)
                 .addComponent(btnUpdateEmp)
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addContainerGap(291, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(leftControlPanel);
+
+        lblTitle.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
+        lblTitle.setText("Human Resource Management");
 
         javax.swing.GroupLayout rightWorkAreaLayout = new javax.swing.GroupLayout(rightWorkArea);
         rightWorkArea.setLayout(rightWorkAreaLayout);
         rightWorkAreaLayout.setHorizontalGroup(
             rightWorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 486, Short.MAX_VALUE)
+            .addGroup(rightWorkAreaLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(lblTitle)
+                .addContainerGap(150, Short.MAX_VALUE))
         );
         rightWorkAreaLayout.setVerticalGroup(
             rightWorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 574, Short.MAX_VALUE)
+            .addGroup(rightWorkAreaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblTitle)
+                .addContainerGap(650, Short.MAX_VALUE))
         );
 
         splitPane.setRightComponent(rightWorkArea);
@@ -126,6 +142,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnAddEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEmpActionPerformed
         // TODO add your handling code here:
+        
+        CreateEmpJPanel addEmployee = new CreateEmpJPanel();
+        splitPane.setRightComponent(addEmployee);
     }//GEN-LAST:event_btnAddEmpActionPerformed
 
     /**
@@ -167,6 +186,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnAddEmp;
     private javax.swing.JButton btnUpdateEmp;
     private javax.swing.JButton btnViewEmp;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel leftControlPanel;
     private javax.swing.JPanel rightWorkArea;
     private javax.swing.JSplitPane splitPane;
