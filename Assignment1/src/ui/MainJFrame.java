@@ -42,8 +42,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Human Resource Management");
-        setMaximumSize(new java.awt.Dimension(800, 700));
-        setPreferredSize(new java.awt.Dimension(800, 700));
+        setMaximumSize(new java.awt.Dimension(900, 700));
+        setPreferredSize(new java.awt.Dimension(900, 700));
 
         btnAddEmp.setText("Add Employee");
         btnAddEmp.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +105,7 @@ public class MainJFrame extends javax.swing.JFrame {
             .addGroup(rightWorkAreaLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
                 .addComponent(lblTitle)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addContainerGap(250, Short.MAX_VALUE))
         );
         rightWorkAreaLayout.setVerticalGroup(
             rightWorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,6 +138,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnViewEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewEmpActionPerformed
         // TODO add your handling code here:
+        ReadEmpJPanel viewEmployee = new ReadEmpJPanel(history);
+        splitPane.setRightComponent(viewEmployee);
     }//GEN-LAST:event_btnViewEmpActionPerformed
 
     private void btnAddEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEmpActionPerformed

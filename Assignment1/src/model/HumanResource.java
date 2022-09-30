@@ -100,6 +100,10 @@ public class HumanResource {
     public void setEmpEmail(String empEmail) {
         this.empEmail = empEmail;
     }
-
+    
+    @Override
+    public String toString() {
+        return empFullName;
+    }
     
 }
