@@ -100,6 +100,11 @@ public class ReadEmpJPanel extends javax.swing.JPanel {
 
         btnDelete.setText("Delete");
         btnDelete.setMaximumSize(new java.awt.Dimension(72, 23));
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         txtEmpFullName.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
 
@@ -156,7 +161,7 @@ public class ReadEmpJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 400, Short.MAX_VALUE)
                 .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
@@ -192,7 +197,7 @@ public class ReadEmpJPanel extends javax.swing.JPanel {
                     .addComponent(txtEmpPosTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtEmpPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtEmpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnDelete, btnView});
@@ -262,7 +267,7 @@ public class ReadEmpJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         int rowIndexPoint = tblEmpDetails.getSelectedRow();
         
-        if(rowIndexPoint<0) {
+        if(rowIndexPoint == -1) {
             JOptionPane.showMessageDialog(this, "To view a row, please choose one!!");
             return;
             
@@ -284,6 +289,34 @@ public class ReadEmpJPanel extends javax.swing.JPanel {
         txtEmpEmail.setText(empDetailsSelected.getEmpEmail());
         
     }//GEN-LAST:event_btnViewActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        int rowIndexPoint = tblEmpDetails.getSelectedRow();
+        
+        if(rowIndexPoint == -1) {
+            JOptionPane.showMessageDialog(this, "To delete a row, please choose one!!");
+            return;
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tblEmpDetails.getModel();
+        HumanResource selecteddetails = (HumanResource)model.getValueAt(rowIndexPoint,0);
+        
+        history.deletedetails(selecteddetails);
+        
+        JOptionPane.showMessageDialog(this, "Employee Details have been deleted Successfully!!");
+        txtEmpFullName.setText("");
+        txtEmpId.setText("");
+        txtEmpAge.setText("");
+        txtEmpGender.setText("");
+        txtEmpStartDate.setText("");
+        txtEmpLevel.setText("");
+        txtEmpTeamInfo.setText("");
+        txtEmpPosTitle.setText("");
+        txtEmpPhoneNo.setText("");
+        txtEmpEmail.setText("");
+        readTable();
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

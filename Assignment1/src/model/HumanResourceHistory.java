@@ -32,5 +32,17 @@ public class HumanResourceHistory {
         history.add(newEmployee);
         return newEmployee;
     }
+    public HumanResource updateEmpDetails(int rowIndexPoint, HumanResource hr){
+        
+//        HumanResource updateEmployee = new HumanResource();
+//        System.out.println(hr);
+        history.set(rowIndexPoint, hr);
+//        System.out.println(hr);
+        return hr;
+    }
+
+    public void deletedetails(HumanResource hr) {
+        history.remove(hr);
+    }
     
 }
