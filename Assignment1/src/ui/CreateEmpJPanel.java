@@ -4,6 +4,10 @@
  */
 package ui;
 
+import javax.swing.JOptionPane;
+import model.HumanResource;
+import model.HumanResourceHistory;
+
 /**
  *
  * @author hp
@@ -13,8 +17,11 @@ public class CreateEmpJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreateEmpJPanel
      */
-    public CreateEmpJPanel() {
+    HumanResourceHistory history;
+    public CreateEmpJPanel(HumanResourceHistory history) {
         initComponents();
+        
+        this.history = history;
     }
 
     /**
@@ -201,6 +208,42 @@ public class CreateEmpJPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
+        String empFullName = txtEmpFullName.getText();
+        int empId = Integer.parseInt(txtEmpId.getText());
+        int empAge = Integer.parseInt(txtEmpAge.getText());
+        String empGender = txtEmpGender.getText();
+        String empStartDate = txtEmpStartDate.getText();
+        String empLevel = txtEmpLevel.getText();
+        String empTeamInfo = txtEmpTeamInfo.getText();
+        String empTitle = txtEmpPosTitle.getText();
+        String empPhNumber = txtEmpPhoneNo.getText();
+        String empEmail = txtEmpEmail.getText();
+        
+        HumanResource hr = history.addNewEmpDetails();
+        
+        hr.setEmpFullName(empFullName);
+        hr.setEmpId(empId);
+        hr.setEmpAge(empAge);
+        hr.setEmpGender(empGender);
+        hr.setEmpStartDate(empStartDate);
+        hr.setEmpLevel(empLevel);
+        hr.setEmpTeamInfo(empTeamInfo);
+        hr.setEmpTitle(empTitle);
+        hr.setEmpPhNumber(empPhNumber);
+        hr.setEmpEmail(empEmail);
+        
+        JOptionPane.showMessageDialog(this, "New Employee Added Successfully!!");
+        
+        txtEmpFullName.setText("");
+        txtEmpId.setText("");
+        txtEmpAge.setText("");
+        txtEmpGender.setText("");
+        txtEmpStartDate.setText("");
+        txtEmpLevel.setText("");
+        txtEmpTeamInfo.setText("");
+        txtEmpPosTitle.setText("");
+        txtEmpPhoneNo.setText("");
+        txtEmpEmail.setText("");
     }//GEN-LAST:event_btnSubmitActionPerformed
 
 

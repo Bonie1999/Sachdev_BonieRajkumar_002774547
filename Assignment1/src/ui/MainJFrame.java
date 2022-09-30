@@ -143,7 +143,7 @@ public class MainJFrame extends javax.swing.JFrame {
     private void btnAddEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddEmpActionPerformed
         // TODO add your handling code here:
         
-        CreateEmpJPanel addEmployee = new CreateEmpJPanel();
+        CreateEmpJPanel addEmployee = new CreateEmpJPanel(history);
         splitPane.setRightComponent(addEmployee);
     }//GEN-LAST:event_btnAddEmpActionPerformed
 

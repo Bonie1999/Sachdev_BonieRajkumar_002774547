@@ -26,5 +26,11 @@ public class HumanResourceHistory {
         this.history = history;
     }
     
+    public HumanResource addNewEmpDetails(){
+        
+        HumanResource newEmployee = new HumanResource();
+        history.add(newEmployee);
+        return newEmployee;
+    }
     
 }
