@@ -4,6 +4,8 @@
  */
 package ui;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.HumanResource;
@@ -19,6 +21,12 @@ public class UpdateEmpJPanel extends javax.swing.JPanel {
      * Creates new form UpdateEmpJPanel
      */
     HumanResourceHistory history;
+    public boolean flagEmail=true;
+    public boolean flagPhoneNo=true;
+    public boolean flagEmpID=true;
+    public boolean flagEmpAge = true;
+    public boolean flagEmpName = true;
+    public boolean flagGender = true;
     public UpdateEmpJPanel(HumanResourceHistory history) {
         initComponents();
         
@@ -295,48 +303,162 @@ public class UpdateEmpJPanel extends javax.swing.JPanel {
             return;
 
         }
-        DefaultTableModel model = (DefaultTableModel) tblEmpDetails.getModel();
-        HumanResource empDetailsSelected = (HumanResource)model.getValueAt(rowIndexPoint, 0);
-//        System.out.println(rowIndexPoint);
-        
-        empDetailsSelected.setEmpFullName(txtEmpFullName.getText());
-        empDetailsSelected.setEmpId(txtEmpId.getText());
-        empDetailsSelected.setEmpAge(Integer.parseInt(txtEmpAge.getText()));
-        empDetailsSelected.setEmpGender(txtEmpGender.getText());
-        empDetailsSelected.setEmpStartDate(txtEmpStartDate.getText());
-        empDetailsSelected.setEmpLevel(txtEmpLevel.getText());
-        empDetailsSelected.setEmpTeamInfo(txtEmpTeamInfo.getText());
-        empDetailsSelected.setEmpTitle(txtEmpPosTitle.getText());
-        empDetailsSelected.setEmpPhNumber(txtEmpPhoneNo.getText());
-        empDetailsSelected.setEmpEmail(txtEmpEmail.getText());       
-        
-        
-        history.updateEmpDetails(rowIndexPoint, empDetailsSelected);
-        readTable();
-        
-        txtEmpFullName.setText("");
-        txtEmpId.setText("");
-        txtEmpAge.setText("");
-        txtEmpGender.setText("");
-        txtEmpStartDate.setText("");
-        txtEmpLevel.setText("");
-        txtEmpTeamInfo.setText("");
-        txtEmpPosTitle.setText("");
-        txtEmpPhoneNo.setText("");
-        txtEmpEmail.setText("");
-//        
-//        txtEmpFullName.setText(empDetailsSelected.getEmpFullName());
-//        txtEmpId.setText(String.valueOf(empDetailsSelected.getEmpId()));
-//        txtEmpAge.setText(String.valueOf(empDetailsSelected.getEmpAge()));
-//        txtEmpGender.setText(empDetailsSelected.getEmpGender());
-//        txtEmpStartDate.setText(empDetailsSelected.getEmpStartDate());
-//        txtEmpLevel.setText(empDetailsSelected.getEmpLevel());
-//        txtEmpTeamInfo.setText(empDetailsSelected.getEmpTeamInfo());
-//        txtEmpPosTitle.setText(empDetailsSelected.getEmpTitle());
-//        txtEmpPhoneNo.setText(empDetailsSelected.getEmpPhNumber());
-//        txtEmpEmail.setText(empDetailsSelected.getEmpEmail());
-    }//GEN-LAST:event_btnUpdateActionPerformed
+        if (txtEmpFullName.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee Full Name is Mandatory");
+        }else if(txtEmpId.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee ID is Mandatory");
+        }else if(txtEmpAge.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee Age is Mandatory");
+        }else if(txtEmpGender.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee Gender is Mandatory");
+        }else if(txtEmpStartDate.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee Start Date is Mandatory");
+        }else if(txtEmpLevel.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee Level is Mandatory");
+        }else if(txtEmpTeamInfo.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee Team Info is Mandatory");
+        }else if(txtEmpPosTitle.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee Title is Mandatory");
+        }else if(txtEmpPhoneNo.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee Phone Number is Mandatory");
+        }else if(txtEmpEmail.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee Email is Mandatory");
+        }else {
+            if(txtEmpEmail.getText().length() > 0){
+                flagEmail = true;
+                String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+                Pattern pattern = Pattern.compile(regex);
+                Matcher matcher = pattern.matcher(txtEmpEmail.getText());
+                if(!matcher.matches()){
+                    JOptionPane.showMessageDialog(this, "Employee Email is not correct");
+                    txtEmpEmail.setText("");
+                    flagEmail = false;
+                }
+                else{
+//                    System.out.println(rowIndexPoint);
+                    int pos = 0;
+                    for(HumanResource hr : history.getHistory()){
+                        Object[] row = new Object[3];
+                        row[0] = hr.getEmpEmail();
+//                        row[1] = hr.getEmpId();
+//                        row[2] = hr.getEmpPhNumber();
+                        if(pos != rowIndexPoint){
+                            if(row[0].equals(txtEmpEmail.getText())){
+                                JOptionPane.showMessageDialog(this, "Employee Email already exists");
+                                flagEmail = false;
+                            }
+                        }
+                        pos++;
+                    }
+                }
+            }
+            if(txtEmpPhoneNo.getText().length() > 0){
+                flagPhoneNo = true;
+                String regex = "^\\d{10}$";
+                Pattern pattern = Pattern.compile(regex);
+                Matcher matcher = pattern.matcher(txtEmpPhoneNo.getText());
+                if(!matcher.matches()){
+                    JOptionPane.showMessageDialog(this, "Employee Phone number is not correct");
+                    flagPhoneNo = false;
+                }
+                else{
+                    int pos = 0;
+                    for(HumanResource hr : history.getHistory()){
+                        Object[] row = new Object[1];
+                        row[0] = hr.getEmpPhNumber();
+                        if(pos != rowIndexPoint){
+                            if(row[0].equals(txtEmpPhoneNo.getText())){
+                                JOptionPane.showMessageDialog(this, "Employee Phone number already exists");
+                                flagPhoneNo = false;
+                            }
+                        }
+                        pos++;
+                    }
+                    
+                }
+            }
+            if(txtEmpAge.getText().length() > 0){
+                try{
+                    flagEmpAge = true;
+                    if(Integer.parseInt(txtEmpAge.getText())<=0){
+                        JOptionPane.showMessageDialog(this, "Employee Age is not correct");
+                        flagEmpAge = false;
+                    }
+                }catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(this, "Employee Age is not correct");
+                    flagEmpAge = false;
+                }
+            }
+            if(txtEmpFullName.getText().length() > 0){
+                flagEmpName = true;
+//                System.out.println(txtEmpFullName.getText());
+                String str = txtEmpFullName.getText();
+                boolean ans = str.matches("[a-zA-Z]+");
+//                System.out.println(ans);
+                if(!ans){
+                    JOptionPane.showMessageDialog(this, "Employee Full Name is not correct");
+                    flagEmpName = false;
+                }
+            }
+            if(txtEmpGender.getText().length() > 0){
+                flagGender = true;
+//                System.out.println(txtEmpGender.getText());
+                String str = txtEmpGender.getText();
+                boolean ans = str.matches("[a-zA-Z]+");
+//                System.out.println(ans);
+                if(!ans){
+                    JOptionPane.showMessageDialog(this, "Employee Gender is not correct");
+                    flagGender = false;
+                }
+            }
+            if(txtEmpId.getText().length() > 0){
+                flagEmpID = true;
+                int pos = 0;
+                for(HumanResource hr : history.getHistory()){
+                    Object[] row = new Object[1];
+                    row[0] = hr.getEmpId();
+                    if(pos != rowIndexPoint){
+                        if(row[0].equals(txtEmpId.getText())){
+                            JOptionPane.showMessageDialog(this, "Employee ID already exists");
+                            flagEmpID = false;
+                        }
+                    }
+                    pos++;
+                }
+            }
+            if(flagEmail && flagPhoneNo && flagEmpID && flagEmpAge && flagEmpName && flagGender){
+                DefaultTableModel model = (DefaultTableModel) tblEmpDetails.getModel();
+                HumanResource empDetailsSelected = (HumanResource)model.getValueAt(rowIndexPoint, 0);
+        //        System.out.println(rowIndexPoint);
 
+                empDetailsSelected.setEmpFullName(txtEmpFullName.getText());
+                empDetailsSelected.setEmpId(txtEmpId.getText());
+                empDetailsSelected.setEmpAge(Integer.parseInt(txtEmpAge.getText()));
+                empDetailsSelected.setEmpGender(txtEmpGender.getText());
+                empDetailsSelected.setEmpStartDate(txtEmpStartDate.getText());
+                empDetailsSelected.setEmpLevel(txtEmpLevel.getText());
+                empDetailsSelected.setEmpTeamInfo(txtEmpTeamInfo.getText());
+                empDetailsSelected.setEmpTitle(txtEmpPosTitle.getText());
+                empDetailsSelected.setEmpPhNumber(txtEmpPhoneNo.getText());
+                empDetailsSelected.setEmpEmail(txtEmpEmail.getText());       
+
+
+                history.updateEmpDetails(rowIndexPoint, empDetailsSelected);
+                readTable();
+
+                txtEmpFullName.setText("");
+                txtEmpId.setText("");
+                txtEmpAge.setText("");
+                txtEmpGender.setText("");
+                txtEmpStartDate.setText("");
+                txtEmpLevel.setText("");
+                txtEmpTeamInfo.setText("");
+                txtEmpPosTitle.setText("");
+                txtEmpPhoneNo.setText("");
+                txtEmpEmail.setText("");
+            }
+    }//GEN-LAST:event_btnUpdateActionPerformed
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnUpdate;
