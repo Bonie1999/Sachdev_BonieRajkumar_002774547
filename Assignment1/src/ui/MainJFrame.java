@@ -34,7 +34,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         leftControlPanel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         btnAddEmp = new javax.swing.JButton();
+        btnSearchEmp = new javax.swing.JButton();
         btnViewEmp = new javax.swing.JButton();
         btnUpdateEmp = new javax.swing.JButton();
         rightWorkArea = new javax.swing.JPanel();
@@ -42,13 +44,18 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Human Resource Management");
-        setMaximumSize(new java.awt.Dimension(900, 700));
-        setPreferredSize(new java.awt.Dimension(900, 700));
 
         btnAddEmp.setText("Add Employee");
         btnAddEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddEmpActionPerformed(evt);
+            }
+        });
+
+        btnSearchEmp.setText("Search Employees");
+        btnSearchEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchEmpActionPerformed(evt);
             }
         });
 
@@ -66,31 +73,51 @@ public class MainJFrame extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAddEmp)
+                    .addComponent(btnViewEmp)
+                    .addComponent(btnUpdateEmp)
+                    .addComponent(btnSearchEmp, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
+        );
+
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddEmp, btnSearchEmp, btnUpdateEmp, btnViewEmp});
+
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(129, 129, 129)
+                .addComponent(btnAddEmp)
+                .addGap(100, 100, 100)
+                .addComponent(btnViewEmp)
+                .addGap(100, 100, 100)
+                .addComponent(btnUpdateEmp)
+                .addGap(100, 100, 100)
+                .addComponent(btnSearchEmp)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout leftControlPanelLayout = new javax.swing.GroupLayout(leftControlPanel);
         leftControlPanel.setLayout(leftControlPanelLayout);
         leftControlPanelLayout.setHorizontalGroup(
             leftControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(leftControlPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(leftControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAddEmp)
-                    .addComponent(btnViewEmp)
-                    .addComponent(btnUpdateEmp))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        leftControlPanelLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddEmp, btnUpdateEmp, btnViewEmp});
-
         leftControlPanelLayout.setVerticalGroup(
             leftControlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(leftControlPanelLayout.createSequentialGroup()
-                .addGap(144, 144, 144)
-                .addComponent(btnAddEmp)
-                .addGap(101, 101, 101)
-                .addComponent(btnViewEmp)
-                .addGap(95, 95, 95)
-                .addComponent(btnUpdateEmp)
-                .addContainerGap(291, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(leftControlPanel);
@@ -151,6 +178,13 @@ public class MainJFrame extends javax.swing.JFrame {
         splitPane.setRightComponent(addEmployee);
     }//GEN-LAST:event_btnAddEmpActionPerformed
 
+    private void btnSearchEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchEmpActionPerformed
+        // TODO add your handling code here:
+        
+        SearchEmpJPanel searchEmployee = new SearchEmpJPanel(history);
+        splitPane.setRightComponent(searchEmployee);
+    }//GEN-LAST:event_btnSearchEmpActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -188,8 +222,10 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddEmp;
+    private javax.swing.JButton btnSearchEmp;
     private javax.swing.JButton btnUpdateEmp;
     private javax.swing.JButton btnViewEmp;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel leftControlPanel;
     private javax.swing.JPanel rightWorkArea;
