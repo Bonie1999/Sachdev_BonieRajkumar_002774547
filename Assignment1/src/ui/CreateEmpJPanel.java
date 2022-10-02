@@ -22,6 +22,9 @@ public class CreateEmpJPanel extends javax.swing.JPanel {
     public boolean flagEmail=true;
     public boolean flagPhoneNo=true;
     public boolean flagEmpID=true;
+    public boolean flagEmpAge = true;
+    public boolean flagEmpName = true;
+    public boolean flagGender = true;
     public CreateEmpJPanel(HumanResourceHistory history) {
         initComponents();
         
@@ -278,68 +281,89 @@ public class CreateEmpJPanel extends javax.swing.JPanel {
                     }
             }
             }
+            if(txtEmpAge.getText().length() > 0){
+                try{
+                    flagEmpAge = true;
+                    if(Integer.parseInt(txtEmpAge.getText())<=0){
+                        JOptionPane.showMessageDialog(this, "Employee Age is not correct");
+                        flagEmpAge = false;
+                    }
+                }catch(NumberFormatException e){
+                    JOptionPane.showMessageDialog(this, "Employee Age is not correct");
+                    flagEmpAge = false;
+                }
+            }
+            if(txtEmpFullName.getText().length() > 0){
+                flagEmpName = true;
+//                System.out.println(txtEmpFullName.getText());
+                String str = txtEmpFullName.getText();
+                boolean ans = str.matches("[a-zA-Z]+");
+//                System.out.println(ans);
+                if(!ans){
+                    JOptionPane.showMessageDialog(this, "Employee Full Name is not correct");
+                    flagEmpName = false;
+                }
+            }
+            if(txtEmpGender.getText().length() > 0){
+                flagGender = true;
+//                System.out.println(txtEmpGender.getText());
+                String str = txtEmpGender.getText();
+                boolean ans = str.matches("[a-zA-Z]+");
+//                System.out.println(ans);
+                if(!ans){
+                    JOptionPane.showMessageDialog(this, "Employee Gender is not correct");
+                    flagGender = false;
+                }
+            }
             if(txtEmpId.getText().length() > 0){
                 flagEmpID = true;
-                String regex = "^\\d{5}$";
-                Pattern pattern = Pattern.compile(regex);
-                Matcher matcher = pattern.matcher(txtEmpId.getText());
-                if(matcher.matches()){
-                    JOptionPane.showMessageDialog(this, "Employee ID is not correct");
-                    flagEmpID = false;
-                }
-                else{
-                    for(HumanResource hr : history.getHistory()){
-                        Object[] row = new Object[1];
-                        row[0] = hr.getEmpId();
-                        if(row[0].equals(txtEmpId.getText())){
-                            JOptionPane.showMessageDialog(this, "Employee ID already exists");
-                            flagEmpID = false;
-                        }
+                for(HumanResource hr : history.getHistory()){
+                    Object[] row = new Object[1];
+                    row[0] = hr.getEmpId();
+                    if(row[0].equals(txtEmpId.getText())){
+                        JOptionPane.showMessageDialog(this, "Employee ID already exists");
+                        flagEmpID = false;
                     }
                 }
             }
-            
-                if(flagEmail && flagPhoneNo && flagEmpID){
-                    String empFullName = txtEmpFullName.getText();
-                    String empId = txtEmpId.getText();
-                    int empAge = Integer.parseInt(txtEmpAge.getText());
-                    String empGender = txtEmpGender.getText();
-                    String empStartDate = txtEmpStartDate.getText();
-                    String empLevel = txtEmpLevel.getText();
-                    String empTeamInfo = txtEmpTeamInfo.getText();
-                    String empTitle = txtEmpPosTitle.getText();
-                    String empPhNumber = txtEmpPhoneNo.getText();
-                    String empEmail = txtEmpEmail.getText();
+            if(flagEmail && flagPhoneNo && flagEmpID && flagEmpAge && flagEmpName && flagGender){
+                String empFullName = txtEmpFullName.getText();
+                String empId = txtEmpId.getText();
+                int empAge = Integer.parseInt(txtEmpAge.getText());
+                String empGender = txtEmpGender.getText();
+                String empStartDate = txtEmpStartDate.getText();
+                String empLevel = txtEmpLevel.getText();
+                String empTeamInfo = txtEmpTeamInfo.getText();
+                String empTitle = txtEmpPosTitle.getText();
+                String empPhNumber = txtEmpPhoneNo.getText();
+                String empEmail = txtEmpEmail.getText();
 
-                    HumanResource hr = history.addNewEmpDetails();
+                HumanResource hr = history.addNewEmpDetails();
 
-                    hr.setEmpFullName(empFullName);
-                    hr.setEmpId(empId);
-                    hr.setEmpAge(empAge);
-                    hr.setEmpGender(empGender);
-                    hr.setEmpStartDate(empStartDate);
-                    hr.setEmpLevel(empLevel);
-                    hr.setEmpTeamInfo(empTeamInfo);
-                    hr.setEmpTitle(empTitle);
-                    hr.setEmpPhNumber(empPhNumber);
-                    hr.setEmpEmail(empEmail);
+                hr.setEmpFullName(empFullName);
+                hr.setEmpId(empId);
+                hr.setEmpAge(empAge);
+                hr.setEmpGender(empGender);
+                hr.setEmpStartDate(empStartDate);
+                hr.setEmpLevel(empLevel);
+                hr.setEmpTeamInfo(empTeamInfo);
+                hr.setEmpTitle(empTitle);
+                hr.setEmpPhNumber(empPhNumber);
+                hr.setEmpEmail(empEmail);
 
-                    JOptionPane.showMessageDialog(this, "New Employee Added Successfully!!");
+                JOptionPane.showMessageDialog(this, "New Employee Added Successfully!!");
 
-                    txtEmpFullName.setText("");
-                    txtEmpId.setText("");
-                    txtEmpAge.setText("");
-                    txtEmpGender.setText("");
-                    txtEmpStartDate.setText("");
-                    txtEmpLevel.setText("");
-                    txtEmpTeamInfo.setText("");
-                    txtEmpPosTitle.setText("");
-                    txtEmpPhoneNo.setText("");
-                    txtEmpEmail.setText("");
-                }
-                    
-                
-            
+                txtEmpFullName.setText("");
+                txtEmpId.setText("");
+                txtEmpAge.setText("");
+                txtEmpGender.setText("");
+                txtEmpStartDate.setText("");
+                txtEmpLevel.setText("");
+                txtEmpTeamInfo.setText("");
+                txtEmpPosTitle.setText("");
+                txtEmpPhoneNo.setText("");
+                txtEmpEmail.setText("");
+            }
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
