@@ -53,47 +53,89 @@ public class HumanResourceHistory {
         System.out.println(searchValue);
         ArrayList<HumanResource> searchedList = new ArrayList<>();
 //        System.out.println(history);
-        if(colName.equals("Id")){
+        if(colName.equalsIgnoreCase("Id") || colName.equalsIgnoreCase("Age")){
 //            System.out.println("Colname ID");
             int id = Integer.parseInt(searchValue);
-            for(int i=0;i<history.size();i++){
-                HumanResource hr = history.get(i);
-                if(id == hr.getEmpId()){
-                    searchedList.add(hr);
-//                    System.out.println(searchedList);
+            if(colName.equalsIgnoreCase("Id")){
+                for(int i=0;i<history.size();i++){
+                    HumanResource hr = history.get(i);
+                    if(id == hr.getEmpId()){
+                        searchedList.add(hr);
+    //                    System.out.println(searchedList);
+                    }
+                }
+            }
+            if(colName.equalsIgnoreCase("Age")){
+                for(int i=0;i<history.size();i++){
+                    HumanResource hr = history.get(i);
+                    if(id == hr.getEmpAge()){
+                        searchedList.add(hr);
+//                        System.out.println(searchedList);
+                    }
                 }
             }
         }else{
 //            System.out.println("Colname other than ID");
-            if(colName.equals("Name")){
+            if(colName.equalsIgnoreCase("Name")){
                 for(int i=0;i<history.size();i++){
                     HumanResource hr = history.get(i);
-                    if(hr.getEmpFullName().equals(searchValue)){
+                    if(hr.getEmpFullName().equalsIgnoreCase(searchValue)){
                         searchedList.add(hr);
 //                        System.out.println(searchedList);
                     }
                 }
-            }
-            else if(colName.equals("Title")){
+            }else if(colName.equalsIgnoreCase("Gender")){
                 for(int i=0;i<history.size();i++){
                     HumanResource hr = history.get(i);
-                    if(hr.getEmpTitle().equals(searchValue)){
+                    if(hr.getEmpGender().equalsIgnoreCase(searchValue)){
                         searchedList.add(hr);
 //                        System.out.println(searchedList);
                     }
                 }
-            }else if(colName.equals("Phone no")){
+            }else if(colName.equalsIgnoreCase("Start date")){
                 for(int i=0;i<history.size();i++){
                     HumanResource hr = history.get(i);
-                    if(hr.getEmpPhNumber().equals(searchValue)){
+                    if(hr.getEmpStartDate().equalsIgnoreCase(searchValue)){
                         searchedList.add(hr);
 //                        System.out.println(searchedList);
                     }
                 }
-            }else if(colName.equals("Email")){
+            }else if(colName.equalsIgnoreCase("Level")){
                 for(int i=0;i<history.size();i++){
                     HumanResource hr = history.get(i);
-                    if(hr.getEmpEmail().equals(searchValue)){
+                    if(hr.getEmpLevel().equalsIgnoreCase(searchValue)){
+                        searchedList.add(hr);
+//                        System.out.println(searchedList);
+                    }
+                }
+            }else if(colName.equalsIgnoreCase("Team info")){
+                for(int i=0;i<history.size();i++){
+                    HumanResource hr = history.get(i);
+                    if(hr.getEmpTeamInfo().equalsIgnoreCase(searchValue)){
+                        searchedList.add(hr);
+//                        System.out.println(searchedList);
+                    }
+                }
+            }else if(colName.equalsIgnoreCase("Title")){
+                for(int i=0;i<history.size();i++){
+                    HumanResource hr = history.get(i);
+                    if(hr.getEmpTitle().equalsIgnoreCase(searchValue)){
+                        searchedList.add(hr);
+//                        System.out.println(searchedList);
+                    }
+                }
+            }else if(colName.equalsIgnoreCase("Phone no")){
+                for(int i=0;i<history.size();i++){
+                    HumanResource hr = history.get(i);
+                    if(hr.getEmpPhNumber().equalsIgnoreCase(searchValue)){
+                        searchedList.add(hr);
+//                        System.out.println(searchedList);
+                    }
+                }
+            }else if(colName.equalsIgnoreCase("Email")){
+                for(int i=0;i<history.size();i++){
+                    HumanResource hr = history.get(i);
+                    if(hr.getEmpEmail().equalsIgnoreCase(searchValue)){
                         searchedList.add(hr);
 //                        System.out.println(searchedList);
                     }
