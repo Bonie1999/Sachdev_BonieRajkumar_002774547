@@ -5,6 +5,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -43,6 +46,64 @@ public class HumanResourceHistory {
 
     public void deletedetails(HumanResource hr) {
         history.remove(hr);
+    }
+
+    public ArrayList<HumanResource> getEmployeeColumns(String colName, String searchValue) {
+        System.out.println(colName);
+        System.out.println(searchValue);
+        ArrayList<HumanResource> searchedList = new ArrayList<>();
+//        System.out.println(history);
+        if(colName.equals("Id")){
+//            System.out.println("Colname ID");
+            int id = Integer.parseInt(searchValue);
+            for(int i=0;i<history.size();i++){
+                HumanResource hr = history.get(i);
+                if(id == hr.getEmpId()){
+                    searchedList.add(hr);
+//                    System.out.println(searchedList);
+                }
+            }
+        }else{
+//            System.out.println("Colname other than ID");
+            if(colName.equals("Name")){
+                for(int i=0;i<history.size();i++){
+                    HumanResource hr = history.get(i);
+                    if(hr.getEmpFullName().equals(searchValue)){
+                        searchedList.add(hr);
+//                        System.out.println(searchedList);
+                    }
+                }
+            }
+            else if(colName.equals("Title")){
+                for(int i=0;i<history.size();i++){
+                    HumanResource hr = history.get(i);
+                    if(hr.getEmpTitle().equals(searchValue)){
+                        searchedList.add(hr);
+//                        System.out.println(searchedList);
+                    }
+                }
+            }else if(colName.equals("Phone no")){
+                for(int i=0;i<history.size();i++){
+                    HumanResource hr = history.get(i);
+                    if(hr.getEmpPhNumber().equals(searchValue)){
+                        searchedList.add(hr);
+//                        System.out.println(searchedList);
+                    }
+                }
+            }else if(colName.equals("Email")){
+                for(int i=0;i<history.size();i++){
+                    HumanResource hr = history.get(i);
+                    if(hr.getEmpEmail().equals(searchValue)){
+                        searchedList.add(hr);
+//                        System.out.println(searchedList);
+                    }
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "Invalid column name entered. Please try again!");
+            }
+        }
+        
+        return searchedList;
     }
     
 }

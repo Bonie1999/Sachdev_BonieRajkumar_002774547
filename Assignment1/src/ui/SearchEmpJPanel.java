@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.HumanResource;
 import model.HumanResourceHistory;
+import java.util.ArrayList;
 
 /**
  *
@@ -24,7 +25,6 @@ public class SearchEmpJPanel extends javax.swing.JPanel {
         initComponents();
         
         this.history = history;
-        readTable();
     }
 
     /**
@@ -65,6 +65,7 @@ public class SearchEmpJPanel extends javax.swing.JPanel {
         lblSearchValue = new javax.swing.JLabel();
         txtSearchValue = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
+        lblSearchInstr = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(900, 700));
         setMinimumSize(new java.awt.Dimension(900, 700));
@@ -122,10 +123,7 @@ public class SearchEmpJPanel extends javax.swing.JPanel {
 
         tblEmpDetails.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Employee Name", "Employee ID", "Position Title", "Phone No", "Email"
@@ -158,6 +156,14 @@ public class SearchEmpJPanel extends javax.swing.JPanel {
         lblSearchValue.setText("Search Value:");
 
         btnSearch.setText("Search");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        lblSearchInstr.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblSearchInstr.setText("Note: For Searching the Employee, The Column Name should \"Name, Id, Title, Phone no & Email");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -201,22 +207,24 @@ public class SearchEmpJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblColName)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtColName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblSearchValue)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtSearchValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(253, 253, 253)
-                                .addComponent(btnSearch)
-                                .addGap(311, 311, 311))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblColName)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtColName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(lblSearchValue)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtSearchValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGap(253, 253, 253)
+                                    .addComponent(btnSearch)
+                                    .addGap(311, 311, 311)))
+                            .addComponent(lblSearchInstr, javax.swing.GroupLayout.PREFERRED_SIZE, 805, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(250, 250, 250)
                         .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblColName, lblEmpFullName, lblSearchValue});
@@ -228,15 +236,17 @@ public class SearchEmpJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(lblTitle)
+                .addGap(16, 16, 16)
+                .addComponent(lblSearchInstr)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblColName)
                     .addComponent(txtColName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblSearchValue)
                     .addComponent(txtSearchValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addComponent(btnSearch)
-                .addGap(52, 52, 52)
+                .addGap(20, 20, 20)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnView)
@@ -286,10 +296,10 @@ public class SearchEmpJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblEmpEmail)
                             .addComponent(txtEmpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblColName, lblEmpFullName, lblSearchValue});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblColName, lblEmpFullName, lblSearchInstr, lblSearchValue});
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {txtColName, txtEmpFullName, txtSearchValue});
 
@@ -320,6 +330,41 @@ public class SearchEmpJPanel extends javax.swing.JPanel {
         txtEmpEmail.setText(empDetailsSelected.getEmpEmail());
     }//GEN-LAST:event_btnViewActionPerformed
 
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        // TODO add your handling code here:
+        if(!txtColName.getText().isEmpty() && !txtSearchValue.getText().isEmpty()){
+            String colName = txtColName.getText().trim();
+            String searchValue = txtSearchValue.getText().trim();
+            
+            txtColName.setText("");
+            txtSearchValue.setText("");
+//            System.out.println(colName);
+//            System.out.println(searchValue);
+            DefaultTableModel model = (DefaultTableModel)  tblEmpDetails.getModel();
+             model.setRowCount(0);
+            ArrayList<HumanResource> searchedList;
+            searchedList= history.getEmployeeColumns(colName, searchValue);
+            
+            if(searchedList.size()>0){
+                for(HumanResource hr : searchedList){
+                    Object[] row = new Object[5];
+                    row[0] = hr;
+                    row[1] = hr.getEmpId();
+                    row[2] = hr.getEmpTitle();
+                    row[3] = hr.getEmpPhNumber();
+                    row[4] = hr.getEmpEmail();
+
+                    model.addRow(row);
+                }
+            }else{
+                JOptionPane.showMessageDialog(null, "No records found. Please enter text to search!");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Search textbox cannot be empty. Please enter text to search!");
+        }
+    }//GEN-LAST:event_btnSearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSearch;
@@ -336,6 +381,7 @@ public class SearchEmpJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblEmpPosTitle;
     private javax.swing.JLabel lblEmpStartDate;
     private javax.swing.JLabel lblEmpTeamInfo;
+    private javax.swing.JLabel lblSearchInstr;
     private javax.swing.JLabel lblSearchValue;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblEmpDetails;
