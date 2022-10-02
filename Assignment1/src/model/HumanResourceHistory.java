@@ -53,18 +53,10 @@ public class HumanResourceHistory {
         System.out.println(searchValue);
         ArrayList<HumanResource> searchedList = new ArrayList<>();
 //        System.out.println(history);
-        if(colName.equalsIgnoreCase("Id") || colName.equalsIgnoreCase("Age")){
+        if(colName.equalsIgnoreCase("Age")){
 //            System.out.println("Colname ID");
             int id = Integer.parseInt(searchValue);
-            if(colName.equalsIgnoreCase("Id")){
-                for(int i=0;i<history.size();i++){
-                    HumanResource hr = history.get(i);
-                    if(id == hr.getEmpId()){
-                        searchedList.add(hr);
-    //                    System.out.println(searchedList);
-                    }
-                }
-            }
+            
             if(colName.equalsIgnoreCase("Age")){
                 for(int i=0;i<history.size();i++){
                     HumanResource hr = history.get(i);
@@ -80,6 +72,14 @@ public class HumanResourceHistory {
                 for(int i=0;i<history.size();i++){
                     HumanResource hr = history.get(i);
                     if(hr.getEmpFullName().equalsIgnoreCase(searchValue)){
+                        searchedList.add(hr);
+//                        System.out.println(searchedList);
+                    }
+                }
+            }else if(colName.equalsIgnoreCase("Id")){
+                for(int i=0;i<history.size();i++){
+                    HumanResource hr = history.get(i);
+                    if(hr.getEmpId().equalsIgnoreCase(searchValue)){
                         searchedList.add(hr);
 //                        System.out.println(searchedList);
                     }

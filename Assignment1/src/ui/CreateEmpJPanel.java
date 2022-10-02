@@ -7,6 +7,7 @@ package ui;
 import javax.swing.JOptionPane;
 import model.HumanResource;
 import model.HumanResourceHistory;
+import java.util.regex.*;
 
 /**
  *
@@ -18,6 +19,9 @@ public class CreateEmpJPanel extends javax.swing.JPanel {
      * Creates new form CreateEmpJPanel
      */
     HumanResourceHistory history;
+    public boolean flagEmail=true;
+    public boolean flagPhoneNo=true;
+    public boolean flagEmpID=true;
     public CreateEmpJPanel(HumanResourceHistory history) {
         initComponents();
         
@@ -210,42 +214,133 @@ public class CreateEmpJPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-        String empFullName = txtEmpFullName.getText();
-        int empId = Integer.parseInt(txtEmpId.getText());
-        int empAge = Integer.parseInt(txtEmpAge.getText());
-        String empGender = txtEmpGender.getText();
-        String empStartDate = txtEmpStartDate.getText();
-        String empLevel = txtEmpLevel.getText();
-        String empTeamInfo = txtEmpTeamInfo.getText();
-        String empTitle = txtEmpPosTitle.getText();
-        String empPhNumber = txtEmpPhoneNo.getText();
-        String empEmail = txtEmpEmail.getText();
-        
-        HumanResource hr = history.addNewEmpDetails();
-        
-        hr.setEmpFullName(empFullName);
-        hr.setEmpId(empId);
-        hr.setEmpAge(empAge);
-        hr.setEmpGender(empGender);
-        hr.setEmpStartDate(empStartDate);
-        hr.setEmpLevel(empLevel);
-        hr.setEmpTeamInfo(empTeamInfo);
-        hr.setEmpTitle(empTitle);
-        hr.setEmpPhNumber(empPhNumber);
-        hr.setEmpEmail(empEmail);
-        
-        JOptionPane.showMessageDialog(this, "New Employee Added Successfully!!");
-        
-        txtEmpFullName.setText("");
-        txtEmpId.setText("");
-        txtEmpAge.setText("");
-        txtEmpGender.setText("");
-        txtEmpStartDate.setText("");
-        txtEmpLevel.setText("");
-        txtEmpTeamInfo.setText("");
-        txtEmpPosTitle.setText("");
-        txtEmpPhoneNo.setText("");
-        txtEmpEmail.setText("");
+        if (txtEmpFullName.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee Full Name is Mandatory");
+        }else if(txtEmpId.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee ID is Mandatory");
+        }else if(txtEmpAge.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee Age is Mandatory");
+        }else if(txtEmpGender.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee Gender is Mandatory");
+        }else if(txtEmpStartDate.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee Start Date is Mandatory");
+        }else if(txtEmpLevel.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee Level is Mandatory");
+        }else if(txtEmpTeamInfo.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee Team Info is Mandatory");
+        }else if(txtEmpPosTitle.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee Title is Mandatory");
+        }else if(txtEmpPhoneNo.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee Phone Number is Mandatory");
+        }else if(txtEmpEmail.getText().length()==0){
+            JOptionPane.showMessageDialog(this, "Employee Email is Mandatory");
+        }else {
+            if(txtEmpEmail.getText().length() > 0){
+                flagEmail = true;
+                String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+                Pattern pattern = Pattern.compile(regex);
+                Matcher matcher = pattern.matcher(txtEmpEmail.getText());
+                if(!matcher.matches()){
+                    JOptionPane.showMessageDialog(this, "Employee Email is not correct");
+                    txtEmpEmail.setText("");
+                    flagEmail = false;
+                }
+                else{
+                    for(HumanResource hr : history.getHistory()){
+                        Object[] row = new Object[3];
+                        row[0] = hr.getEmpEmail();
+//                        row[1] = hr.getEmpId();
+//                        row[2] = hr.getEmpPhNumber();
+                        if(row[0].equals(txtEmpEmail.getText())){
+                            JOptionPane.showMessageDialog(this, "Employee Email already exists");
+                            flagEmail = false;
+                        }
+                    }
+                }
+            }
+            if(txtEmpPhoneNo.getText().length() > 0){
+                flagPhoneNo = true;
+                String regex = "^\\d{10}$";
+                Pattern pattern = Pattern.compile(regex);
+                Matcher matcher = pattern.matcher(txtEmpPhoneNo.getText());
+                if(!matcher.matches()){
+                    JOptionPane.showMessageDialog(this, "Employee Phone number is not correct");
+                    flagPhoneNo = false;
+                }
+                else{
+                    for(HumanResource hr : history.getHistory()){
+                        Object[] row = new Object[1];
+                        row[0] = hr.getEmpPhNumber();
+                        if(row[0].equals(txtEmpPhoneNo.getText())){
+                            JOptionPane.showMessageDialog(this, "Employee Phone number already exists");
+                            flagPhoneNo = false;
+                        }
+                    }
+            }
+            }
+            if(txtEmpId.getText().length() > 0){
+                flagEmpID = true;
+                String regex = "^\\d{5}$";
+                Pattern pattern = Pattern.compile(regex);
+                Matcher matcher = pattern.matcher(txtEmpId.getText());
+                if(matcher.matches()){
+                    JOptionPane.showMessageDialog(this, "Employee ID is not correct");
+                    flagEmpID = false;
+                }
+                else{
+                    for(HumanResource hr : history.getHistory()){
+                        Object[] row = new Object[1];
+                        row[0] = hr.getEmpId();
+                        if(row[0].equals(txtEmpId.getText())){
+                            JOptionPane.showMessageDialog(this, "Employee ID already exists");
+                            flagEmpID = false;
+                        }
+                    }
+                }
+            }
+            
+                if(flagEmail && flagPhoneNo && flagEmpID){
+                    String empFullName = txtEmpFullName.getText();
+                    String empId = txtEmpId.getText();
+                    int empAge = Integer.parseInt(txtEmpAge.getText());
+                    String empGender = txtEmpGender.getText();
+                    String empStartDate = txtEmpStartDate.getText();
+                    String empLevel = txtEmpLevel.getText();
+                    String empTeamInfo = txtEmpTeamInfo.getText();
+                    String empTitle = txtEmpPosTitle.getText();
+                    String empPhNumber = txtEmpPhoneNo.getText();
+                    String empEmail = txtEmpEmail.getText();
+
+                    HumanResource hr = history.addNewEmpDetails();
+
+                    hr.setEmpFullName(empFullName);
+                    hr.setEmpId(empId);
+                    hr.setEmpAge(empAge);
+                    hr.setEmpGender(empGender);
+                    hr.setEmpStartDate(empStartDate);
+                    hr.setEmpLevel(empLevel);
+                    hr.setEmpTeamInfo(empTeamInfo);
+                    hr.setEmpTitle(empTitle);
+                    hr.setEmpPhNumber(empPhNumber);
+                    hr.setEmpEmail(empEmail);
+
+                    JOptionPane.showMessageDialog(this, "New Employee Added Successfully!!");
+
+                    txtEmpFullName.setText("");
+                    txtEmpId.setText("");
+                    txtEmpAge.setText("");
+                    txtEmpGender.setText("");
+                    txtEmpStartDate.setText("");
+                    txtEmpLevel.setText("");
+                    txtEmpTeamInfo.setText("");
+                    txtEmpPosTitle.setText("");
+                    txtEmpPhoneNo.setText("");
+                    txtEmpEmail.setText("");
+                }
+                    
+                
+            
+        }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
 

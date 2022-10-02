@@ -11,7 +11,7 @@ package model;
 public class HumanResource {
     
     private String empFullName;
-    private int empId;
+    private String empId;
     private int empAge;
     private String empGender;
     private String empStartDate;
@@ -29,11 +29,11 @@ public class HumanResource {
         this.empFullName = empFullName;
     }
 
-    public int getEmpId() {
+    public String getEmpId() {
         return empId;
     }
 
-    public void setEmpId(int empId) {
+    public void setEmpId(String empId) {
         this.empId = empId;
     }
 

@@ -274,7 +274,7 @@ public class UpdateEmpJPanel extends javax.swing.JPanel {
         HumanResource empDetailsSelected = (HumanResource)model.getValueAt(rowIndexPoint, 0);
 
         txtEmpFullName.setText(empDetailsSelected.getEmpFullName());
-        txtEmpId.setText(String.valueOf(empDetailsSelected.getEmpId()));
+        txtEmpId.setText(empDetailsSelected.getEmpId());
         txtEmpAge.setText(String.valueOf(empDetailsSelected.getEmpAge()));
         txtEmpGender.setText(empDetailsSelected.getEmpGender());
         txtEmpStartDate.setText(empDetailsSelected.getEmpStartDate());
@@ -300,7 +300,7 @@ public class UpdateEmpJPanel extends javax.swing.JPanel {
 //        System.out.println(rowIndexPoint);
         
         empDetailsSelected.setEmpFullName(txtEmpFullName.getText());
-        empDetailsSelected.setEmpId(Integer.parseInt(txtEmpId.getText()));
+        empDetailsSelected.setEmpId(txtEmpId.getText());
         empDetailsSelected.setEmpAge(Integer.parseInt(txtEmpAge.getText()));
         empDetailsSelected.setEmpGender(txtEmpGender.getText());
         empDetailsSelected.setEmpStartDate(txtEmpStartDate.getText());
