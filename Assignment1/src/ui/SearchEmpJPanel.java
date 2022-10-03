@@ -4,11 +4,13 @@
  */
 package ui;
 
+import java.awt.Image;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.HumanResource;
 import model.HumanResourceHistory;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -36,72 +38,47 @@ public class SearchEmpJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtEmpEmail = new javax.swing.JTextField();
-        txtEmpStartDate = new javax.swing.JTextField();
-        lblEmpPosTitle = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
-        lblEmpStartDate = new javax.swing.JLabel();
-        lblEmpGender = new javax.swing.JLabel();
-        lblEmpId = new javax.swing.JLabel();
-        txtEmpTeamInfo = new javax.swing.JTextField();
-        txtEmpId = new javax.swing.JTextField();
-        txtEmpLevel = new javax.swing.JTextField();
-        txtEmpGender = new javax.swing.JTextField();
-        txtEmpAge = new javax.swing.JTextField();
-        lblEmpEmail = new javax.swing.JLabel();
         btnView = new javax.swing.JButton();
-        lblEmpFullName = new javax.swing.JLabel();
-        txtEmpPosTitle = new javax.swing.JTextField();
-        lblEmpAge = new javax.swing.JLabel();
-        lblEmpPhoneNo = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblEmpDetails = new javax.swing.JTable();
-        lblEmpLevel = new javax.swing.JLabel();
-        txtEmpPhoneNo = new javax.swing.JTextField();
-        lblEmpTeamInfo = new javax.swing.JLabel();
-        txtEmpFullName = new javax.swing.JTextField();
         lblColName = new javax.swing.JLabel();
         txtColName = new javax.swing.JTextField();
         lblSearchValue = new javax.swing.JLabel();
         txtSearchValue = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
         lblSearchInstr = new javax.swing.JLabel();
+        lblEmpGender = new javax.swing.JLabel();
+        txtEmpLevel = new javax.swing.JTextField();
+        txtEmpFullName = new javax.swing.JTextField();
+        lblEmpPosTitle = new javax.swing.JLabel();
+        lblEmpId = new javax.swing.JLabel();
+        txtEmpPhoneNo = new javax.swing.JTextField();
+        txtEmpId = new javax.swing.JTextField();
+        lblEmpEmail = new javax.swing.JLabel();
+        lblEmpFullName = new javax.swing.JLabel();
+        txtEmpEmail = new javax.swing.JTextField();
+        txtEmpAge = new javax.swing.JTextField();
+        txtEmpTeamInfo = new javax.swing.JTextField();
+        lblEmpPhoneNo = new javax.swing.JLabel();
+        txtEmpGender = new javax.swing.JTextField();
+        lblEmpAge = new javax.swing.JLabel();
+        lblEmpTeamInfo = new javax.swing.JLabel();
+        lblEmpStartDate = new javax.swing.JLabel();
+        txtEmpPosTitle = new javax.swing.JTextField();
+        txtEmpStartDate = new javax.swing.JTextField();
+        lblEmpLevel = new javax.swing.JLabel();
+        lblImageShow = new javax.swing.JLabel();
+        lblImageShowPath = new javax.swing.JLabel();
+        btnClearDetails = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblEmpDetails = new javax.swing.JTable();
 
-        setMaximumSize(new java.awt.Dimension(1100, 700));
-        setMinimumSize(new java.awt.Dimension(1100, 700));
-        setPreferredSize(new java.awt.Dimension(1100, 700));
-
-        txtEmpEmail.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-
-        txtEmpStartDate.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-
-        lblEmpPosTitle.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        lblEmpPosTitle.setText("Position Title:");
+        setMaximumSize(new java.awt.Dimension(900, 700));
+        setMinimumSize(new java.awt.Dimension(900, 700));
+        setPreferredSize(new java.awt.Dimension(900, 700));
 
         lblTitle.setFont(new java.awt.Font("Calibri", 3, 36)); // NOI18N
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Search an Employee");
-
-        lblEmpStartDate.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        lblEmpStartDate.setText("Start Date:");
-
-        lblEmpGender.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        lblEmpGender.setText("Gender:");
-
-        lblEmpId.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        lblEmpId.setText("Employee ID:");
-
-        txtEmpTeamInfo.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-
-        txtEmpId.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-
-        txtEmpLevel.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-
-        txtEmpGender.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-
-        txtEmpAge.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-
-        lblEmpEmail.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        lblEmpEmail.setText("Email:");
 
         btnView.setText("View");
         btnView.addActionListener(new java.awt.event.ActionListener() {
@@ -109,45 +86,6 @@ public class SearchEmpJPanel extends javax.swing.JPanel {
                 btnViewActionPerformed(evt);
             }
         });
-
-        lblEmpFullName.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        lblEmpFullName.setText("Full Name:");
-
-        txtEmpPosTitle.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-
-        lblEmpAge.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        lblEmpAge.setText("Age:");
-
-        lblEmpPhoneNo.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        lblEmpPhoneNo.setText("Phone Number:");
-
-        tblEmpDetails.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Employee Name", "Employee ID", "Age", "Gender", "Start Date", "Level", "Team Info", "Title", "Phone No", "Email"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tblEmpDetails);
-
-        lblEmpLevel.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        lblEmpLevel.setText("Level:");
-
-        txtEmpPhoneNo.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-
-        lblEmpTeamInfo.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
-        lblEmpTeamInfo.setText("Team Info:");
-
-        txtEmpFullName.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
 
         lblColName.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         lblColName.setText("Column Name:");
@@ -162,113 +100,192 @@ public class SearchEmpJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblSearchInstr.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblSearchInstr.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         lblSearchInstr.setText("Note: For Searching the Employee, The Column Name should \"Name, Id, Age, Gender, Start date, Level, Team info, Title, Phone no & Email");
+
+        lblEmpGender.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblEmpGender.setText("Gender:");
+
+        txtEmpLevel.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+
+        txtEmpFullName.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+
+        lblEmpPosTitle.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblEmpPosTitle.setText("Position Title:");
+
+        lblEmpId.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblEmpId.setText("Employee ID:");
+
+        txtEmpPhoneNo.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+
+        txtEmpId.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+
+        lblEmpEmail.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblEmpEmail.setText("Email:");
+
+        lblEmpFullName.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblEmpFullName.setText("Full Name:");
+
+        txtEmpEmail.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+
+        txtEmpAge.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+
+        txtEmpTeamInfo.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+
+        lblEmpPhoneNo.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblEmpPhoneNo.setText("Phone Number:");
+
+        txtEmpGender.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+
+        lblEmpAge.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblEmpAge.setText("Age:");
+
+        lblEmpTeamInfo.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblEmpTeamInfo.setText("Team Info:");
+
+        lblEmpStartDate.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblEmpStartDate.setText("Start Date:");
+
+        txtEmpPosTitle.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+
+        txtEmpStartDate.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+
+        lblEmpLevel.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblEmpLevel.setText("Level:");
+
+        btnClearDetails.setText("Clear");
+        btnClearDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearDetailsActionPerformed(evt);
+            }
+        });
+
+        tblEmpDetails.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Employee Name", "Employee ID", "Age", "Gender", "Start Date", "Level", "Team Info", "Title", "Phone No", "Email"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblEmpDetails);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lblImageShowPath, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblEmpId)
-                            .addComponent(lblEmpFullName)
-                            .addComponent(lblEmpAge)
-                            .addComponent(lblEmpGender)
-                            .addComponent(lblEmpStartDate))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmpFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmpId, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmpAge, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmpGender, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmpStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblEmpEmail)
-                            .addComponent(lblEmpLevel)
-                            .addComponent(lblEmpTeamInfo)
-                            .addComponent(lblEmpPosTitle)
-                            .addComponent(lblEmpPhoneNo))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmpLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmpTeamInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmpPosTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmpPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(347, 347, 347)
-                        .addComponent(btnView))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblColName)
+                                .addGap(347, 347, 347)
+                                .addComponent(btnView)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtColName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnClearDetails))
+                            .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblSearchInstr, javax.swing.GroupLayout.PREFERRED_SIZE, 1046, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblColName)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtColName, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblSearchValue)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtSearchValue, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(33, 33, 33)
+                                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblEmpId)
+                                    .addComponent(lblEmpFullName)
+                                    .addComponent(lblEmpAge)
+                                    .addComponent(lblEmpGender)
+                                    .addComponent(lblEmpStartDate))
                                 .addGap(18, 18, 18)
-                                .addComponent(lblSearchValue)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtEmpGender, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmpId, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmpFullName, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmpStartDate, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmpAge, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblEmpLevel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblEmpTeamInfo, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblEmpPhoneNo, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblEmpEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblEmpPosTitle, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addGap(18, 18, 18)
-                                .addComponent(txtSearchValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(btnSearch))
-                            .addComponent(lblSearchInstr, javax.swing.GroupLayout.PREFERRED_SIZE, 1013, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(250, 250, 250)
-                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(54, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtEmpPhoneNo, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmpPosTitle, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmpTeamInfo, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmpLevel, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(lblImageShow, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2))
+                .addContainerGap())
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblColName, lblEmpFullName, lblSearchValue});
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtColName, txtEmpFullName, txtSearchValue});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblColName, lblSearchValue});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(lblTitle)
-                .addGap(16, 16, 16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblSearchInstr)
-                .addGap(18, 18, 18)
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblColName)
                     .addComponent(txtColName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblSearchValue)
                     .addComponent(txtSearchValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch))
-                .addGap(63, 63, 63)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnView)
+                    .addComponent(btnClearDetails))
                 .addGap(18, 18, 18)
-                .addComponent(btnView)
-                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblImageShow, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtEmpFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEmpFullName))
-                        .addGap(9, 9, 9)
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblEmpId)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(txtEmpId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(7, 7, 7)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblEmpAge)
-                                .addGap(23, 23, 23))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(txtEmpAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addComponent(lblEmpAge)
+                        .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblEmpGender)
                             .addComponent(txtEmpGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblEmpStartDate)
                             .addComponent(txtEmpStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -276,28 +293,31 @@ public class SearchEmpJPanel extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtEmpLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEmpLevel))
-                        .addGap(18, 18, 18)
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtEmpTeamInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblEmpTeamInfo))
-                        .addGap(18, 18, 18)
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtEmpPosTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEmpPosTitle))
-                        .addGap(17, 17, 17)
+                            .addComponent(lblEmpPosTitle)
+                            .addComponent(txtEmpAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblEmpPhoneNo)
                             .addComponent(txtEmpPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblEmpEmail)
                             .addComponent(txtEmpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(115, 115, 115)
+                .addComponent(lblImageShowPath)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblColName, lblEmpFullName, lblSearchInstr, lblSearchValue});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblColName, lblSearchInstr, lblSearchValue});
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnSearch, txtColName, txtEmpFullName, txtSearchValue});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnSearch, txtColName, txtSearchValue});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -324,6 +344,12 @@ public class SearchEmpJPanel extends javax.swing.JPanel {
         txtEmpPosTitle.setText(empDetailsSelected.getEmpTitle());
         txtEmpPhoneNo.setText(empDetailsSelected.getEmpPhNumber());
         txtEmpEmail.setText(empDetailsSelected.getEmpEmail());
+        lblImageShowPath.setText(empDetailsSelected.getEmpImage());
+        ImageIcon imageDisplay = new ImageIcon (lblImageShowPath.getText());
+        Image image = imageDisplay.getImage();
+        Image newImage = image.getScaledInstance(230, 170, Image.SCALE_DEFAULT);
+        imageDisplay = new ImageIcon(newImage);
+        lblImageShow.setIcon(imageDisplay);
     }//GEN-LAST:event_btnViewActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -345,6 +371,8 @@ public class SearchEmpJPanel extends javax.swing.JPanel {
             txtEmpPosTitle.setText("");
             txtEmpPhoneNo.setText("");
             txtEmpEmail.setText("");
+            lblImageShowPath.setText("");
+            lblImageShow.setIcon(null);
 //            System.out.println(colName);
 //            System.out.println(searchValue);
             DefaultTableModel model = (DefaultTableModel)  tblEmpDetails.getModel();
@@ -379,11 +407,28 @@ public class SearchEmpJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnSearchActionPerformed
 
+    private void btnClearDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearDetailsActionPerformed
+        // TODO add your handling code here:
+        txtEmpFullName.setText("");
+        txtEmpId.setText("");
+        txtEmpAge.setText("");
+        txtEmpGender.setText("");
+        txtEmpStartDate.setText("");
+        txtEmpLevel.setText("");
+        txtEmpTeamInfo.setText("");
+        txtEmpPosTitle.setText("");
+        txtEmpPhoneNo.setText("");
+        txtEmpEmail.setText("");
+        lblImageShowPath.setText("");
+        lblImageShow.setIcon(null);
+    }//GEN-LAST:event_btnClearDetailsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClearDetails;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnView;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblColName;
     private javax.swing.JLabel lblEmpAge;
     private javax.swing.JLabel lblEmpEmail;
@@ -395,6 +440,8 @@ public class SearchEmpJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblEmpPosTitle;
     private javax.swing.JLabel lblEmpStartDate;
     private javax.swing.JLabel lblEmpTeamInfo;
+    private javax.swing.JLabel lblImageShow;
+    private javax.swing.JLabel lblImageShowPath;
     private javax.swing.JLabel lblSearchInstr;
     private javax.swing.JLabel lblSearchValue;
     private javax.swing.JLabel lblTitle;

@@ -44,6 +44,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Human Resource Management");
+        setPreferredSize(new java.awt.Dimension(1300, 700));
 
         btnAddEmp.setText("Add Employee");
         btnAddEmp.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +123,8 @@ public class MainJFrame extends javax.swing.JFrame {
 
         splitPane.setLeftComponent(leftControlPanel);
 
-        lblTitle.setFont(new java.awt.Font("Calibri", 0, 36)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Human Resource Management");
 
         javax.swing.GroupLayout rightWorkAreaLayout = new javax.swing.GroupLayout(rightWorkArea);
@@ -130,16 +132,12 @@ public class MainJFrame extends javax.swing.JFrame {
         rightWorkAreaLayout.setHorizontalGroup(
             rightWorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rightWorkAreaLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(lblTitle)
-                .addContainerGap(250, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE))
         );
         rightWorkAreaLayout.setVerticalGroup(
             rightWorkAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(rightWorkAreaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTitle)
-                .addContainerGap(650, Short.MAX_VALUE))
+            .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
         );
 
         splitPane.setRightComponent(rightWorkArea);
