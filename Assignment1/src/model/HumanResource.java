@@ -20,6 +20,7 @@ public class HumanResource {
     private String empTitle;
     private String empPhNumber;
     private String empEmail;
+    private String empImage;
 
     public String getEmpFullName() {
         return empFullName;
@@ -101,6 +102,14 @@ public class HumanResource {
         this.empEmail = empEmail;
     }
     
+    public String getEmpImage() {
+        return empImage;
+    }
+
+    public void setEmpImage(String empImage) {
+        this.empImage = empImage;
+    }
+
     @Override
     public String toString() {
         return empFullName;

@@ -4,9 +4,17 @@
  */
 package ui;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import model.HumanResource;
 import model.HumanResourceHistory;
@@ -26,12 +34,16 @@ public class UpdateEmpJPanel extends javax.swing.JPanel {
     public boolean flagEmpID=true;
     public boolean flagEmpAge = true;
     public boolean flagEmpName = true;
-    public boolean flagGender = true;
+    public boolean flagGender = true;private final JFileChooser openFileChooser;
+    private BufferedImage originalBI;
     public UpdateEmpJPanel(HumanResourceHistory history) {
         initComponents();
         
         this.history = history;
-        
+        lblImageShowPath.setVisible(false);
+        openFileChooser = new JFileChooser();
+        openFileChooser.setCurrentDirectory(new File("c:\\temp"));
+        openFileChooser.setFileFilter(new FileNameExtensionFilter("PNG images", "png", "jpg"));
         readTable();
     }
 
@@ -69,8 +81,14 @@ public class UpdateEmpJPanel extends javax.swing.JPanel {
         lblEmpPhoneNo = new javax.swing.JLabel();
         lblEmpAge = new javax.swing.JLabel();
         btnUpdate = new javax.swing.JButton();
+        lblImageShow = new javax.swing.JLabel();
+        lblImageMessage = new javax.swing.JLabel();
+        lblImageShowPath = new javax.swing.JLabel();
+        lblImageName = new javax.swing.JLabel();
+        btnChangeImage = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(900, 700));
+        setPreferredSize(new java.awt.Dimension(900, 700));
 
         txtEmpTeamInfo.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
 
@@ -160,6 +178,13 @@ public class UpdateEmpJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnChangeImage.setText("Change Image");
+        btnChangeImage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChangeImageActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -171,101 +196,129 @@ public class UpdateEmpJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblEmpId)
-                            .addComponent(lblEmpFullName)
-                            .addComponent(lblEmpAge)
-                            .addComponent(lblEmpGender)
-                            .addComponent(lblEmpStartDate))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmpFullName, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmpId, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmpAge, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmpGender, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmpStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblEmpEmail)
-                            .addComponent(lblEmpLevel)
-                            .addComponent(lblEmpTeamInfo)
-                            .addComponent(lblEmpPosTitle)
-                            .addComponent(lblEmpPhoneNo))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmpLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmpTeamInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmpPosTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmpPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtEmpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(347, 347, 347)
                         .addComponent(btnView))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(352, 352, 352)
-                        .addComponent(btnUpdate)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblEmpId)
+                                    .addComponent(lblEmpFullName)
+                                    .addComponent(lblEmpAge)
+                                    .addComponent(lblEmpGender)
+                                    .addComponent(lblEmpStartDate))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtEmpGender, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmpId, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmpFullName, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmpStartDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                    .addComponent(txtEmpAge, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblEmpLevel, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblEmpTeamInfo, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblEmpPhoneNo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(68, 68, 68)
+                                        .addComponent(lblEmpEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(lblEmpPosTitle, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtEmpPhoneNo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                                    .addComponent(txtEmpPosTitle, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmpTeamInfo, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmpLevel, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmpEmail))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnChangeImage)
+                                    .addComponent(btnUpdate))
+                                .addGap(316, 316, 316)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblImageShow, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblImageMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblImageShowPath, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblImageName, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblImageMessage, lblImageName, lblImageShowPath});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(lblTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnView)
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtEmpFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEmpFullName))
-                        .addGap(9, 9, 9)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblEmpId)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(txtEmpId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(7, 7, 7)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblEmpAge)
-                                .addGap(23, 23, 23))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(txtEmpAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEmpGender)
-                            .addComponent(txtEmpGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEmpStartDate)
-                            .addComponent(txtEmpStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtEmpLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEmpLevel))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtEmpTeamInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEmpTeamInfo))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtEmpPosTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEmpPosTitle))
-                        .addGap(17, 17, 17)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEmpPhoneNo)
-                            .addComponent(txtEmpPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEmpEmail)
-                            .addComponent(txtEmpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(btnUpdate)
-                .addGap(86, 86, 86))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnView))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(73, 73, 73)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblImageShow, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(txtEmpFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblEmpFullName))
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblEmpId)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(txtEmpId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(7, 7, 7)))
+                                        .addComponent(lblEmpAge)
+                                        .addGap(23, 23, 23)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(lblEmpGender)
+                                            .addComponent(txtEmpGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(lblEmpStartDate)
+                                            .addComponent(txtEmpStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(txtEmpLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblEmpLevel))
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(txtEmpTeamInfo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblEmpTeamInfo))
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(txtEmpPosTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblEmpPosTitle)
+                                            .addComponent(txtEmpAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(lblEmpPhoneNo)
+                                            .addComponent(txtEmpPhoneNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(lblEmpEmail)
+                                            .addComponent(txtEmpEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGap(33, 33, 33)
+                        .addComponent(lblImageName))
+                    .addComponent(btnChangeImage))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnUpdate)
+                    .addComponent(lblImageMessage))
+                .addGap(18, 18, 18)
+                .addComponent(lblImageShowPath)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblEmpAge, lblImageMessage, lblImageName, lblImageShowPath});
+
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewActionPerformed
@@ -291,6 +344,12 @@ public class UpdateEmpJPanel extends javax.swing.JPanel {
         txtEmpPosTitle.setText(empDetailsSelected.getEmpTitle());
         txtEmpPhoneNo.setText(empDetailsSelected.getEmpPhNumber());
         txtEmpEmail.setText(empDetailsSelected.getEmpEmail());
+        lblImageShowPath.setText(empDetailsSelected.getEmpImage());
+        ImageIcon imageDisplay = new ImageIcon (lblImageShowPath.getText());
+        Image image = imageDisplay.getImage();
+        Image newImage = image.getScaledInstance(230, 170, Image.SCALE_DEFAULT);
+        imageDisplay = new ImageIcon(newImage);
+        lblImageShow.setIcon(imageDisplay);
 
     }//GEN-LAST:event_btnViewActionPerformed
 
@@ -323,6 +382,8 @@ public class UpdateEmpJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Employee Phone Number is Mandatory");
         }else if(txtEmpEmail.getText().length()==0){
             JOptionPane.showMessageDialog(this, "Employee Email is Mandatory");
+        }else if(lblImageShowPath.getText().length() == 0){
+            JOptionPane.showMessageDialog(this, "Employee Image is Mandatory");
         }else {
             if(txtEmpEmail.getText().length() > 0){
                 flagEmail = true;
@@ -440,8 +501,9 @@ public class UpdateEmpJPanel extends javax.swing.JPanel {
                 empDetailsSelected.setEmpTeamInfo(txtEmpTeamInfo.getText());
                 empDetailsSelected.setEmpTitle(txtEmpPosTitle.getText());
                 empDetailsSelected.setEmpPhNumber(txtEmpPhoneNo.getText());
-                empDetailsSelected.setEmpEmail(txtEmpEmail.getText());       
-
+                empDetailsSelected.setEmpEmail(txtEmpEmail.getText());
+                empDetailsSelected.setEmpImage(lblImageShowPath.getText());
+                
 
                 history.updateEmpDetails(rowIndexPoint, empDetailsSelected);
                 readTable();
@@ -456,11 +518,43 @@ public class UpdateEmpJPanel extends javax.swing.JPanel {
                 txtEmpPosTitle.setText("");
                 txtEmpPhoneNo.setText("");
                 txtEmpEmail.setText("");
+                lblImageShowPath.setText("");
+                lblImageShow.setIcon(null);
+                lblImageName.setText("");
+                lblImageMessage.setText("");
             }
     }//GEN-LAST:event_btnUpdateActionPerformed
     }
+    private void btnChangeImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeImageActionPerformed
+        // TODO add your handling code here:
+        int imageVal = openFileChooser.showOpenDialog(this);
+        
+        if(imageVal == JFileChooser.APPROVE_OPTION) {
+        try {
+            originalBI = ImageIO.read(openFileChooser.getSelectedFile());
+            lblImageMessage.setText("Image added Successfully!");
+            String selectedImagePath = openFileChooser.getSelectedFile().getAbsolutePath();
+            
+            lblImageShowPath.setText(selectedImagePath);
+            ImageIcon imageDisplay = new ImageIcon (selectedImagePath);
+            Image image = imageDisplay.getImage();
+            Image newImage = image.getScaledInstance(230, 170, Image.SCALE_DEFAULT);
+            imageDisplay = new ImageIcon(newImage);
+            lblImageShow.setIcon(imageDisplay);
+            lblImageName.setText(txtEmpFullName.getText());
+        } catch(IOException ioe){
+            lblImageMessage.setText("Failed to load Image!");
+            
+        }
+       }
+        else {
+            lblImageMessage.setText("No File Chosen!");
+        }
+    }//GEN-LAST:event_btnChangeImageActionPerformed
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnChangeImage;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnView;
     private javax.swing.JScrollPane jScrollPane1;
@@ -474,6 +568,10 @@ public class UpdateEmpJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblEmpPosTitle;
     private javax.swing.JLabel lblEmpStartDate;
     private javax.swing.JLabel lblEmpTeamInfo;
+    private javax.swing.JLabel lblImageMessage;
+    private javax.swing.JLabel lblImageName;
+    private javax.swing.JLabel lblImageShow;
+    private javax.swing.JLabel lblImageShowPath;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblEmpDetails;
     private javax.swing.JTextField txtEmpAge;
