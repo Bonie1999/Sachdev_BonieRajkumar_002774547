@@ -180,6 +180,7 @@ public class LoginScreen extends javax.swing.JFrame {
         // TODO add your handling code here:
         String username = LoginScreen_username_textfield.getText().trim();
         String password = new String(LoginScreen_password_textfield.getPassword());
+        boolean flag = false;
         System.out.println("username " + username + " password " + password);
         
         User communityUser = new User();
@@ -198,11 +199,12 @@ public class LoginScreen extends javax.swing.JFrame {
         DataStore.userArrayList.add(communityUser);
         
         
-        
         if (username.equals("bonie") && password.equals("123")) {
+            flag =true;
             DataStore.USERROLE = "SUPER_ADMIN";
             dispose();
             new SuperAdminDashboardScreen().setVisible(true);
+            JOptionPane.showMessageDialog(null, "Login Successfull with System Admin");
         }else        if (!DataStore.userArrayList.isEmpty()) {
             for (int i = 0; i < DataStore.userArrayList.size(); i++) {
                System.out.println("username stored " + DataStore.userArrayList.get(i).getId() + " password stored " + DataStore.userArrayList.get(i).getPassword()
@@ -210,6 +212,7 @@ public class LoginScreen extends javax.swing.JFrame {
                 if (DataStore.userArrayList.get(i).getId().equals(username) && DataStore.userArrayList.get(i).getPassword().equals(password)) {
                     User user = new User();
                     user = DataStore.userArrayList.get(i);
+                    flag = true;
                     switch (user.getRole()) {
 
                         case "HOSPITAL" -> {
@@ -217,6 +220,7 @@ public class LoginScreen extends javax.swing.JFrame {
                             DataStore.USERID = user.getId();
                             dispose();
                             new SuperAdminDashboardScreen().setVisible(true);
+                            JOptionPane.showMessageDialog(null, "Login Successfull with Hospital Admin");
                         }
                         
                         case "DOCTOR" -> {
@@ -224,24 +228,30 @@ public class LoginScreen extends javax.swing.JFrame {
                             DataStore.USERID = user.getId();
                             dispose();
                             new SuperAdminDashboardScreen().setVisible(true);
+                            JOptionPane.showMessageDialog(null, "Login Successfull with Doctor");
                         } 
                         case "PATIENT" -> {
                             DataStore.USERROLE = "PATIENT";
                             DataStore.USERID = user.getId();
                             dispose();
                             new SuperAdminDashboardScreen().setVisible(true);
+                            JOptionPane.showMessageDialog(null, "Login Successfull with Patient");
                         }
                         case "COMMUNITY_ADMIN" -> {
                             DataStore.USERROLE = "COMMUNITY_ADMIN";
                             DataStore.USERID = user.getId();
                             dispose();
                             new SuperAdminDashboardScreen().setVisible(true);
+                            JOptionPane.showMessageDialog(null, "Login Successfull with Community Admin");
                         }
 
                     }
 i = DataStore.userArrayList.size();
                 }
                 
+            }
+            if(flag==false){
+                JOptionPane.showMessageDialog(null, "Invalid Credentials");
             }
 
         } else {
@@ -255,6 +265,7 @@ i = DataStore.userArrayList.size();
         DataStore.USERROLE = "PERSON";
         dispose();
         new SuperAdminDashboardScreen().setVisible(true);
+        JOptionPane.showMessageDialog(null, "Register yourself as a Person");
     }//GEN-LAST:event_Login_Screen_Register_ButtonActionPerformed
 
     /**

@@ -380,8 +380,6 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
 
         tabbedPane.setBackground(new java.awt.Color(51, 51, 51));
         tabbedPane.setForeground(new java.awt.Color(255, 255, 255));
-        tabbedPane.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
-        tabbedPane.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
         tabbedPane.setToolTipText("");
         tabbedPane.setMinimumSize(new java.awt.Dimension(1024, 700));
         tabbedPane.setPreferredSize(new java.awt.Dimension(1024, 700));
@@ -720,7 +718,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
                     .addGroup(super_admin_hospital_Screen_jPanelLayout.createSequentialGroup()
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
-                    .addComponent(hospital_Screen_allHospitalsTablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)))
+                    .addComponent(hospital_Screen_allHospitalsTablePanel, javax.swing.GroupLayout.DEFAULT_SIZE, 445, Short.MAX_VALUE)))
         );
 
         tabbedPane.addTab("HOSPITAL", super_admin_hospital_Screen_jPanel);
@@ -1172,7 +1170,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
             .addGroup(jPanel22Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab("SEARCH HOSPITAL", jPanel22);
@@ -1706,7 +1704,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
             .addGroup(jPanel19Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab("ENCOUNTER HISTORY", jPanel19);
@@ -1771,7 +1769,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab("ASSIGNED PATIENTS", jPanel13);
@@ -2559,7 +2557,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(154, Short.MAX_VALUE))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab("APPROVE PATIENTS", jPanel15);
@@ -2896,7 +2894,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
                 .addGroup(super_admin_doctor_screen_jpanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel37, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         tabbedPane.addTab("ADD DOCTOR", super_admin_doctor_screen_jpanel1);
@@ -4495,7 +4493,7 @@ else
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Dark Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
