@@ -369,27 +369,39 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
         superadmin_patient_patientId_label = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         superadmin_patient_patientId_label1 = new javax.swing.JLabel();
-        MainExitButton = new javax.swing.JButton();
-        MainLogoutButton = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
         MainLabel = new javax.swing.JLabel();
+        MainLogoutButton = new javax.swing.JButton();
+        MainExitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 0, 0));
+        setBackground(new java.awt.Color(51, 51, 51));
         setMinimumSize(new java.awt.Dimension(1024, 576));
 
+        tabbedPane.setBackground(new java.awt.Color(51, 51, 51));
+        tabbedPane.setForeground(new java.awt.Color(255, 255, 255));
         tabbedPane.setMinimumSize(new java.awt.Dimension(1024, 700));
         tabbedPane.setPreferredSize(new java.awt.Dimension(1024, 700));
 
-        super_admin_hospital_Screen_jPanel.setForeground(new java.awt.Color(255, 102, 102));
+        super_admin_hospital_Screen_jPanel.setBackground(new java.awt.Color(51, 51, 51));
+        super_admin_hospital_Screen_jPanel.setForeground(new java.awt.Color(255, 255, 255));
         super_admin_hospital_Screen_jPanel.setMinimumSize(new java.awt.Dimension(983, 400));
         super_admin_hospital_Screen_jPanel.setPreferredSize(new java.awt.Dimension(983, 400));
 
+        hospital_Screen_allHospitalsTablePanel.setBackground(new java.awt.Color(51, 51, 51));
         hospital_Screen_allHospitalsTablePanel.setMinimumSize(new java.awt.Dimension(550, 400));
         hospital_Screen_allHospitalsTablePanel.setPreferredSize(new java.awt.Dimension(550, 400));
 
+        hospital_Screen_tableTitleLabel.setBackground(new java.awt.Color(255, 255, 255));
         hospital_Screen_tableTitleLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        hospital_Screen_tableTitleLabel.setForeground(new java.awt.Color(255, 255, 255));
         hospital_Screen_tableTitleLabel.setText("All Hospitals");
 
+        jScrollPane1.setBackground(new java.awt.Color(51, 51, 51));
+        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
+
+        superadmin_Hospitals_Screen_All_Hospitals_Table.setBackground(new java.awt.Color(51, 51, 51));
+        superadmin_Hospitals_Screen_All_Hospitals_Table.setForeground(new java.awt.Color(255, 255, 255));
         superadmin_Hospitals_Screen_All_Hospitals_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -408,7 +420,9 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
         superadmin_Hospitals_Screen_All_Hospitals_Table.setPreferredSize(new java.awt.Dimension(500, 0));
         jScrollPane1.setViewportView(superadmin_Hospitals_Screen_All_Hospitals_Table);
 
-        hospital_Screen_update_button.setBackground(new java.awt.Color(0, 204, 204));
+        superAdminDashboardScreen_DeleteUpdatePanel.setBackground(new java.awt.Color(51, 51, 51));
+
+        hospital_Screen_update_button.setBackground(new java.awt.Color(0, 153, 153));
         hospital_Screen_update_button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         hospital_Screen_update_button.setText("UPDATE");
         hospital_Screen_update_button.setMaximumSize(new java.awt.Dimension(84, 27));
@@ -420,7 +434,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
             }
         });
 
-        hospital_Screen_delete_button.setBackground(new java.awt.Color(0, 204, 204));
+        hospital_Screen_delete_button.setBackground(new java.awt.Color(0, 153, 153));
         hospital_Screen_delete_button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         hospital_Screen_delete_button.setText("DELETE");
         hospital_Screen_delete_button.addActionListener(new java.awt.event.ActionListener() {
@@ -448,7 +462,9 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        hospital_Screen_add_hospital_button.setBackground(new java.awt.Color(0, 204, 204));
+        superAdminDashboardScreen_Reset_AddButtonPanel.setBackground(new java.awt.Color(51, 51, 51));
+
+        hospital_Screen_add_hospital_button.setBackground(new java.awt.Color(0, 153, 153));
         hospital_Screen_add_hospital_button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         hospital_Screen_add_hospital_button.setText("ADD");
         hospital_Screen_add_hospital_button.addActionListener(new java.awt.event.ActionListener() {
@@ -457,7 +473,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
             }
         });
 
-        superAdminDashboardScreenAdd_Details_Reset_Button.setBackground(new java.awt.Color(0, 204, 204));
+        superAdminDashboardScreenAdd_Details_Reset_Button.setBackground(new java.awt.Color(0, 153, 153));
         superAdminDashboardScreenAdd_Details_Reset_Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superAdminDashboardScreenAdd_Details_Reset_Button.setText("RESET");
         superAdminDashboardScreenAdd_Details_Reset_Button.addActionListener(new java.awt.event.ActionListener() {
@@ -519,34 +535,44 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
                 .addGap(171, 171, 171))
         );
 
+        jPanel5.setBackground(new java.awt.Color(51, 51, 51));
         jPanel5.setMinimumSize(new java.awt.Dimension(336, 350));
         jPanel5.setPreferredSize(new java.awt.Dimension(336, 350));
 
+        jPanel26.setBackground(new java.awt.Color(51, 51, 51));
+
+        hospital_Screen_hospitalNameTextField.setBackground(new java.awt.Color(204, 204, 204));
         hospital_Screen_hospitalNameTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         hospital_Screen_hospitalNameTextField.setMinimumSize(new java.awt.Dimension(203, 26));
         hospital_Screen_hospitalNameTextField.setPreferredSize(new java.awt.Dimension(203, 26));
 
+        hospital_Screen_hospitalAddressTextField.setBackground(new java.awt.Color(204, 204, 204));
         hospital_Screen_hospitalAddressTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         hospital_Screen_hospitalAddressTextField.setMinimumSize(new java.awt.Dimension(203, 26));
         hospital_Screen_hospitalAddressTextField.setPreferredSize(new java.awt.Dimension(203, 26));
 
+        hospital_Screen_HospitalIdTextField.setBackground(new java.awt.Color(204, 204, 204));
         hospital_Screen_HospitalIdTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         hospital_Screen_HospitalIdTextField.setText("H1");
         hospital_Screen_HospitalIdTextField.setMinimumSize(new java.awt.Dimension(203, 26));
         hospital_Screen_HospitalIdTextField.setPreferredSize(new java.awt.Dimension(203, 26));
 
+        hospital_Screen_hospitalCommunityComboBox.setBackground(new java.awt.Color(204, 204, 204));
         hospital_Screen_hospitalCommunityComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boston", "Mountain View" }));
 
+        hospital_Screen_hospitalPincodeTextField.setBackground(new java.awt.Color(204, 204, 204));
         hospital_Screen_hospitalPincodeTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         hospital_Screen_hospitalPincodeTextField.setText("02120");
         hospital_Screen_hospitalPincodeTextField.setMinimumSize(new java.awt.Dimension(203, 26));
         hospital_Screen_hospitalPincodeTextField.setPreferredSize(new java.awt.Dimension(203, 26));
 
+        hospital_Screen_hospitalCityTextField.setBackground(new java.awt.Color(204, 204, 204));
         hospital_Screen_hospitalCityTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         hospital_Screen_hospitalCityTextField.setText("Boston");
         hospital_Screen_hospitalCityTextField.setMinimumSize(new java.awt.Dimension(203, 26));
         hospital_Screen_hospitalCityTextField.setPreferredSize(new java.awt.Dimension(203, 26));
 
+        hospital_Screen_password_TextField.setBackground(new java.awt.Color(204, 204, 204));
         hospital_Screen_password_TextField.setText("123");
         hospital_Screen_password_TextField.setPreferredSize(new java.awt.Dimension(203, 26));
 
@@ -589,19 +615,28 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
                 .addGap(127, 127, 127))
         );
 
-        jLabel15.setText("Hospital City");
+        jPanel27.setBackground(new java.awt.Color(51, 51, 51));
 
-        jLabel14.setText("Hospital Address");
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel15.setText("Hospital City:");
 
-        jLabel16.setText("Hospital Pincode");
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Hospital Address:");
 
-        jLabel17.setText("Hospital Name");
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setText("Hospital Pincode:");
 
-        jLabel1.setText("Hospital ID");
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("Hospital Name:");
 
-        jLabel58.setText("Hospital Community");
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Hospital ID:");
 
-        jLabel61.setText("Admin Password");
+        jLabel58.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel58.setText("Hospital Community:");
+
+        jLabel61.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel61.setText("Admin Password:");
 
         javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
         jPanel27.setLayout(jPanel27Layout);
@@ -648,7 +683,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
+                .addContainerGap(10, Short.MAX_VALUE)
                 .addComponent(jPanel27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -689,8 +724,10 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
 
         tabbedPane.addTab("HOSPITAL", super_admin_hospital_Screen_jPanel);
 
+        super_admin_doctor_screen_jpanel.setBackground(new java.awt.Color(51, 51, 51));
         super_admin_doctor_screen_jpanel.setMinimumSize(new java.awt.Dimension(983, 400));
 
+        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
         jPanel4.setMinimumSize(new java.awt.Dimension(550, 350));
 
         superadmin_Doctors_Screen_All_Doctors_Table.setModel(new javax.swing.table.DefaultTableModel(
@@ -704,10 +741,14 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
         superadmin_Doctors_Screen_All_Doctors_Table.setPreferredSize(new java.awt.Dimension(300, 100));
         jScrollPane2.setViewportView(superadmin_Doctors_Screen_All_Doctors_Table);
 
+        superadmin_Doctors_Screen_Table_Label.setBackground(new java.awt.Color(51, 51, 51));
         superadmin_Doctors_Screen_Table_Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        superadmin_Doctors_Screen_Table_Label.setForeground(new java.awt.Color(255, 255, 255));
         superadmin_Doctors_Screen_Table_Label.setText("All Doctors");
 
-        superadmin_Doctors_Screen_Add_Button.setBackground(new java.awt.Color(0, 204, 204));
+        superAdmin_Doctor_Screen_Add_Reset_Panel.setBackground(new java.awt.Color(51, 51, 51));
+
+        superadmin_Doctors_Screen_Add_Button.setBackground(new java.awt.Color(0, 153, 153));
         superadmin_Doctors_Screen_Add_Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superadmin_Doctors_Screen_Add_Button.setText("ADD");
         superadmin_Doctors_Screen_Add_Button.addActionListener(new java.awt.event.ActionListener() {
@@ -716,7 +757,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
             }
         });
 
-        superadmin_Doctors_Screen_Reset_Button.setBackground(new java.awt.Color(0, 204, 204));
+        superadmin_Doctors_Screen_Reset_Button.setBackground(new java.awt.Color(0, 153, 153));
         superadmin_Doctors_Screen_Reset_Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superadmin_Doctors_Screen_Reset_Button.setText("RESET");
         superadmin_Doctors_Screen_Reset_Button.addActionListener(new java.awt.event.ActionListener() {
@@ -748,7 +789,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
@@ -769,19 +810,28 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
                 .addGap(121, 121, 121))
         );
 
+        jPanel6.setBackground(new java.awt.Color(51, 51, 51));
         jPanel6.setMinimumSize(new java.awt.Dimension(336, 350));
 
-        jLabel25.setText("Doctor Name");
+        jPanel3.setBackground(new java.awt.Color(51, 51, 51));
 
-        jLabel2.setText("Doctor ID");
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel25.setText("Doctor Name:");
 
-        jLabel23.setText("Department");
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Doctor ID:");
 
-        jLabel26.setText("Doctor Phone");
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel23.setText("Department:");
 
-        jLabel24.setText("Select Hospital");
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel26.setText("Doctor Phone:");
 
-        jLabel27.setText("Password");
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setText("Select Hospital:");
+
+        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel27.setText("Password:");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -816,6 +866,9 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
                 .addGap(0, 78, Short.MAX_VALUE))
         );
 
+        jPanel25.setBackground(new java.awt.Color(51, 51, 51));
+
+        superadmin_Doctors_Screen_Id_Textfield.setBackground(new java.awt.Color(204, 204, 204));
         superadmin_Doctors_Screen_Id_Textfield.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superadmin_Doctors_Screen_Id_Textfield.setText("D1");
         superadmin_Doctors_Screen_Id_Textfield.setMinimumSize(new java.awt.Dimension(203, 26));
@@ -826,11 +879,13 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
             }
         });
 
+        superadmin_Doctors_Screen_Phone_TextField.setBackground(new java.awt.Color(204, 204, 204));
         superadmin_Doctors_Screen_Phone_TextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superadmin_Doctors_Screen_Phone_TextField.setText("4");
         superadmin_Doctors_Screen_Phone_TextField.setMinimumSize(new java.awt.Dimension(203, 26));
         superadmin_Doctors_Screen_Phone_TextField.setPreferredSize(new java.awt.Dimension(203, 26));
 
+        superadmin_Doctors_Screen_Hospital_List.setBackground(new java.awt.Color(204, 204, 204));
         superadmin_Doctors_Screen_Hospital_List.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -838,12 +893,15 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
         });
         jScrollPane12.setViewportView(superadmin_Doctors_Screen_Hospital_List);
 
+        superadmin_Doctors_Screen_Name_TextField.setBackground(new java.awt.Color(204, 204, 204));
         superadmin_Doctors_Screen_Name_TextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superadmin_Doctors_Screen_Name_TextField.setText("Dr. TC");
         superadmin_Doctors_Screen_Name_TextField.setMinimumSize(new java.awt.Dimension(203, 26));
         superadmin_Doctors_Screen_Name_TextField.setPreferredSize(new java.awt.Dimension(203, 26));
 
-        superadmin_Doctors_Screen_Delete_Button.setBackground(new java.awt.Color(0, 204, 204));
+        superAdmin_Doctor_Screen_Delete_UpdatePanel.setBackground(new java.awt.Color(51, 51, 51));
+
+        superadmin_Doctors_Screen_Delete_Button.setBackground(new java.awt.Color(0, 153, 153));
         superadmin_Doctors_Screen_Delete_Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superadmin_Doctors_Screen_Delete_Button.setText("DELETE");
         superadmin_Doctors_Screen_Delete_Button.addActionListener(new java.awt.event.ActionListener() {
@@ -852,15 +910,19 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
             }
         });
 
+        idlabel.setForeground(new java.awt.Color(255, 255, 255));
         idlabel.setText("Hospital ID");
 
+        superadmin_Doctors_Screen_hospital_id_label.setForeground(new java.awt.Color(255, 255, 255));
         superadmin_Doctors_Screen_hospital_id_label.setText("-");
 
+        superadmin_Doctors_Screen_doctor_id_label.setForeground(new java.awt.Color(255, 255, 255));
         superadmin_Doctors_Screen_doctor_id_label.setText("-");
 
+        idlabel1.setForeground(new java.awt.Color(255, 255, 255));
         idlabel1.setText("Doctor ID");
 
-        superadmin_Doctors_Screen_UpdateButton.setBackground(new java.awt.Color(0, 204, 204));
+        superadmin_Doctors_Screen_UpdateButton.setBackground(new java.awt.Color(0, 153, 153));
         superadmin_Doctors_Screen_UpdateButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superadmin_Doctors_Screen_UpdateButton.setText("UPDATE");
         superadmin_Doctors_Screen_UpdateButton.setMaximumSize(new java.awt.Dimension(84, 27));
@@ -905,11 +967,13 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
                     .addComponent(superadmin_Doctors_Screen_UpdateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        superadmin_Doctors_Screen_Department_Combo_Box.setBackground(new java.awt.Color(204, 204, 204));
         superadmin_Doctors_Screen_Department_Combo_Box.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superadmin_Doctors_Screen_Department_Combo_Box.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Adult", "Teen", "Children", "Emergency" }));
         superadmin_Doctors_Screen_Department_Combo_Box.setMinimumSize(new java.awt.Dimension(203, 26));
         superadmin_Doctors_Screen_Department_Combo_Box.setPreferredSize(new java.awt.Dimension(203, 26));
 
+        superadmin_Doctors_Screen_Password_Textfield.setBackground(new java.awt.Color(204, 204, 204));
         superadmin_Doctors_Screen_Password_Textfield.setText("123");
         superadmin_Doctors_Screen_Password_Textfield.setPreferredSize(new java.awt.Dimension(203, 26));
 
@@ -1086,7 +1150,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
             .addGroup(jPanel22Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jPanel23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1393,7 +1457,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
             .addGroup(jPanel24Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jPanel35, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         jPanel24Layout.setVerticalGroup(
             jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1572,7 +1636,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
             .addGroup(jPanel19Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jPanel20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel19Layout.setVerticalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1634,7 +1698,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2013,7 +2077,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
             .addGroup(jPanel40Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jPanel41, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel40Layout.setVerticalGroup(
             jPanel40Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2025,8 +2089,10 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
 
         tabbedPane.addTab("ADD PATIENT", jPanel40);
 
+        jPanel10.setBackground(new java.awt.Color(51, 51, 51));
         jPanel10.setMinimumSize(new java.awt.Dimension(983, 400));
 
+        jPanel11.setBackground(new java.awt.Color(51, 51, 51));
         jPanel11.setMinimumSize(new java.awt.Dimension(550, 350));
 
         superadmin_Encounters_Screen_EncounterHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -2045,8 +2111,10 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
         jScrollPane4.setViewportView(superadmin_Encounters_Screen_EncounterHistoryTable);
 
         superadmin_Encounters_Screen_TableTitle_Label.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        superadmin_Encounters_Screen_TableTitle_Label.setForeground(new java.awt.Color(255, 255, 255));
         superadmin_Encounters_Screen_TableTitle_Label.setText("Encounter History");
 
+        superadmin_Encounters_Screen_GetButton.setBackground(new java.awt.Color(0, 153, 153));
         superadmin_Encounters_Screen_GetButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superadmin_Encounters_Screen_GetButton.setText("GET");
         superadmin_Encounters_Screen_GetButton.addActionListener(new java.awt.event.ActionListener() {
@@ -2062,6 +2130,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
             }
         });
 
+        superadmin_Encounters_Screen_SearchLabel.setForeground(new java.awt.Color(255, 255, 255));
         superadmin_Encounters_Screen_SearchLabel.setText("Patient ID");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
@@ -2096,12 +2165,16 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
                 .addGap(20, 20, 20))
         );
 
+        jPanel12.setBackground(new java.awt.Color(51, 51, 51));
         jPanel12.setMinimumSize(new java.awt.Dimension(336, 350));
 
+        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
         jLabel36.setText("Temperature");
 
+        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
         jLabel37.setText("Hospital");
 
+        superadmin_Encounters_Screen_Add_Button.setBackground(new java.awt.Color(0, 153, 153));
         superadmin_Encounters_Screen_Add_Button.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superadmin_Encounters_Screen_Add_Button.setText("ADD");
         superadmin_Encounters_Screen_Add_Button.addActionListener(new java.awt.event.ActionListener() {
@@ -2110,6 +2183,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
             }
         });
 
+        superAdminDashboardScreenAdd_Details_Reset_Button6.setBackground(new java.awt.Color(0, 153, 153));
         superAdminDashboardScreenAdd_Details_Reset_Button6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superAdminDashboardScreenAdd_Details_Reset_Button6.setText("RESET");
         superAdminDashboardScreenAdd_Details_Reset_Button6.addActionListener(new java.awt.event.ActionListener() {
@@ -2136,54 +2210,68 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
                     .addComponent(superAdminDashboardScreenAdd_Details_Reset_Button6)))
         );
 
+        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
         jLabel38.setText("Doctor");
 
+        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
         jLabel39.setText("Patient Name");
 
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Patient ID");
 
         superadmin_Encounters_Screen_patientIdTextField.setEditable(false);
+        superadmin_Encounters_Screen_patientIdTextField.setBackground(new java.awt.Color(153, 153, 153));
         superadmin_Encounters_Screen_patientIdTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superadmin_Encounters_Screen_patientIdTextField.setMinimumSize(new java.awt.Dimension(203, 26));
         superadmin_Encounters_Screen_patientIdTextField.setPreferredSize(new java.awt.Dimension(203, 26));
 
         superadmin_Encounters_Screen_PatientPhoneTextField.setEditable(false);
+        superadmin_Encounters_Screen_PatientPhoneTextField.setBackground(new java.awt.Color(153, 153, 153));
         superadmin_Encounters_Screen_PatientPhoneTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superadmin_Encounters_Screen_PatientPhoneTextField.setMinimumSize(new java.awt.Dimension(203, 26));
         superadmin_Encounters_Screen_PatientPhoneTextField.setPreferredSize(new java.awt.Dimension(203, 26));
 
         superadmin_Encounters_Screen_PatientNameTextField.setEditable(false);
+        superadmin_Encounters_Screen_PatientNameTextField.setBackground(new java.awt.Color(153, 153, 153));
         superadmin_Encounters_Screen_PatientNameTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superadmin_Encounters_Screen_PatientNameTextField.setMinimumSize(new java.awt.Dimension(203, 26));
         superadmin_Encounters_Screen_PatientNameTextField.setPreferredSize(new java.awt.Dimension(203, 26));
 
+        jLabel40.setForeground(new java.awt.Color(255, 255, 255));
         jLabel40.setText("Patient Phone");
 
         superadmin_Encounters_Screen_Patient_Hospital_TextField.setEditable(false);
+        superadmin_Encounters_Screen_Patient_Hospital_TextField.setBackground(new java.awt.Color(153, 153, 153));
         superadmin_Encounters_Screen_Patient_Hospital_TextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superadmin_Encounters_Screen_Patient_Hospital_TextField.setMinimumSize(new java.awt.Dimension(203, 26));
         superadmin_Encounters_Screen_Patient_Hospital_TextField.setPreferredSize(new java.awt.Dimension(203, 26));
 
         superadmin_Encounters_Screen_Doctor_Name_TextField.setEditable(false);
+        superadmin_Encounters_Screen_Doctor_Name_TextField.setBackground(new java.awt.Color(153, 153, 153));
         superadmin_Encounters_Screen_Doctor_Name_TextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superadmin_Encounters_Screen_Doctor_Name_TextField.setMinimumSize(new java.awt.Dimension(203, 26));
         superadmin_Encounters_Screen_Doctor_Name_TextField.setPreferredSize(new java.awt.Dimension(203, 26));
 
+        superadmin_Encounters_Screen_TemperatureTextField.setBackground(new java.awt.Color(204, 204, 204));
         superadmin_Encounters_Screen_TemperatureTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superadmin_Encounters_Screen_TemperatureTextField.setMinimumSize(new java.awt.Dimension(203, 26));
         superadmin_Encounters_Screen_TemperatureTextField.setPreferredSize(new java.awt.Dimension(203, 26));
 
+        jLabel59.setForeground(new java.awt.Color(255, 255, 255));
         jLabel59.setText("Blood Pressure");
 
+        superadmin_Encounters_Screen_BloodPressure_TextField.setBackground(new java.awt.Color(204, 204, 204));
         superadmin_Encounters_Screen_BloodPressure_TextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superadmin_Encounters_Screen_BloodPressure_TextField.setMinimumSize(new java.awt.Dimension(203, 26));
         superadmin_Encounters_Screen_BloodPressure_TextField.setPreferredSize(new java.awt.Dimension(203, 26));
 
         superadmin_Encounters_Screen_Patient_HospitalId_TextField.setEditable(false);
+        superadmin_Encounters_Screen_Patient_HospitalId_TextField.setBackground(new java.awt.Color(153, 153, 153));
         superadmin_Encounters_Screen_Patient_HospitalId_TextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         superadmin_Encounters_Screen_Patient_HospitalId_TextField.setMinimumSize(new java.awt.Dimension(203, 26));
         superadmin_Encounters_Screen_Patient_HospitalId_TextField.setPreferredSize(new java.awt.Dimension(203, 26));
 
+        jLabel45.setForeground(new java.awt.Color(255, 255, 255));
         jLabel45.setText("Hospital ID");
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
@@ -2357,7 +2445,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addComponent(jPanel21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2986,7 +3074,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3003,13 +3091,11 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
 
         tabbedPane.addTab("PATIENT", jPanel7);
 
-        MainExitButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        MainExitButton.setText("EXIT");
-        MainExitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MainExitButtonActionPerformed(evt);
-            }
-        });
+        jPanel9.setBackground(new java.awt.Color(51, 51, 51));
+
+        MainLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        MainLabel.setForeground(new java.awt.Color(255, 255, 255));
+        MainLabel.setText("HOSPITAL MANAGEMENT SYSTEM");
 
         MainLogoutButton.setBackground(new java.awt.Color(255, 102, 102));
         MainLogoutButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -3020,35 +3106,52 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
             }
         });
 
-        MainLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        MainLabel.setForeground(new java.awt.Color(0, 102, 102));
-        MainLabel.setText("HOSPITAL SYSTEM");
+        MainExitButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        MainExitButton.setText("EXIT");
+        MainExitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MainExitButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(MainLabel)
+                .addGap(225, 225, 225)
+                .addComponent(MainLogoutButton)
+                .addGap(18, 18, 18)
+                .addComponent(MainExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MainLabel)
+                    .addComponent(MainLogoutButton)
+                    .addComponent(MainExitButton))
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1041, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(MainLabel)
-                .addGap(243, 243, 243)
-                .addComponent(MainLogoutButton)
-                .addGap(18, 18, 18)
-                .addComponent(MainExitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+            .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 956, Short.MAX_VALUE)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(MainExitButton)
-                    .addComponent(MainLogoutButton)
-                    .addComponent(MainLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
                 .addComponent(tabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -4429,6 +4532,7 @@ else
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -4936,8 +5040,6 @@ else
     }
 
     private void initSuperUserEnountersScreen() {
-//        PATIENT_ARRAYLIST_INDEX = -1;
-//        HOSPITAL_ARRAYLIST_INDEX = -1;
         superadmin_Encounters_Screen_patientIdTextField.setText("");
         superadmin_Encounters_Screen_PatientNameTextField.setText("");
         superadmin_Encounters_Screen_PatientPhoneTextField.setText("");
@@ -5031,69 +5133,6 @@ else
         }
         
     }
-
-//    
-//       private void initHospital_AddPatientScreen(ArrayList<Hospital> functionhospitalsarraylist) {
-//        Hospital_Screen_AddPatient_Panel_Delete_UpdatePanel.setVisible(false);
-//           Hospital_Admin_AddPatient_Screen_AllPatientsDefaultTableModel = new DefaultTableModel(new String[]{"#", "ID", "Name", "Doctor", "Hospital"}, 0);
-//        Hospital_Admin_Add_PatientScreen_All_Patients_Table.setModel(Hospital_Admin_AddPatient_Screen_AllPatientsDefaultTableModel);
-//        Hospital_Admin_Add_PatientScreen_All_Patients_Table.setPreferredSize(null);
-//            
-//        doctorsDefaultListModel = new DefaultListModel();
-//        
-//        Hospital hospital = new Hospital();
-//        
-//        for (int i = 0; i < DataStore.hospital_Screen_HospitalArrayList.size(); i++)
-//        {
-//        if (DataStore.USERID.equals(DataStore.hospital_Screen_HospitalArrayList.get(i).getHospitalID()))
-//        {
-//            hospital = DataStore.hospital_Screen_HospitalArrayList.get(i);
-//            i = DataStore.hospital_Screen_HospitalArrayList.size();
-//        }
-//        }
-//        
-//        Hospital_Admin_Add_PatientScreen_HospitalNameTextField.setText(hospital.getHospitalName());
-//        Hospital_Admin_Add_PatientScreen_HospitaIdTextField.setText(hospital.getHospitalID());
-//        ArrayList<Doctor> doctorArrayList = new ArrayList<>();
-//         doctorArrayList.addAll(hospital.getWorkingdoctorsArrayList());
-//        
-//        if (!doctorArrayList.isEmpty()){
-//        for (int i = 0; i < doctorArrayList.size(); i++) {
-//            doctorsDefaultListModel.addElement(doctorArrayList.get(i).getDoctorName());
-//        }
-//        
-//        }
-// 
-//        Hospital_Admin_Add_PatientScreen_DoctorList.setModel(doctorsDefaultListModel);
-//
-//        Hospital_Admin_Select_DoctorListSelectionListener = (ListSelectionEvent event) -> {
-//            if (!event.getValueIsAdjusting()) {
-//                JList source = (JList) event.getSource();
-//                if (source.getSelectedValue() != null) {
-//                   Hospital_Admin_Add_PatientScreen_DoctorIDTextField.setText(doctorArrayList.get(Hospital_Admin_Add_PatientScreen_DoctorList.getSelectedIndex()).getDoctorId());
-//                }
-//            }
-//        };
-//
-//        Hospital_Admin_Add_PatientScreen_DoctorList.addListSelectionListener(Hospital_Admin_Select_DoctorListSelectionListener);
-//        
-//        ArrayList<Patient> patientsArrayList = new ArrayList<>();
-//        for (int i = 0; i < functionhospitalsarraylist.size(); i++) {
-//            if (!functionhospitalsarraylist.get(i).getEnrolledPatientsArrayList().isEmpty()) {
-//                patientsArrayList.addAll(functionhospitalsarraylist.get(i).getEnrolledPatientsArrayList());
-//            }
-//        }
-//        
-//        
-//        
-//        System.out.println("patient array list " + patientsArrayList.size());
-//        if (!patientsArrayList.isEmpty()) {
-//            setDataOnAllPatientsTable("viewAllPatientsTable", Hospital_Admin_AddPatient_Screen_AllPatientsDefaultTableModel, patientsArrayList, Hospital_Admin_Add_PatientScreen_All_Patients_Table);
-//        } else {
-//        }
-//    }
-       
-       
     private void initSuperUserAddPatientScreen(ArrayList<Hospital> functionhospitalsarraylist) {
        
                superadmin_Patients_Screen_patientId_TextField.setText("");
@@ -5433,25 +5472,6 @@ else
         ArrayList<Patient> temppatientArrayList = new ArrayList<>();
         ArrayList<Doctor> doctorArrayList = new ArrayList<>();
         
-//        for (int i = 0; i < DataStore.hospital_Screen_HospitalArrayList.size(); i++)
-//        {
-//        if (DataStore.DOCTOR_HOSPITALID.equals(DataStore.hospital_Screen_HospitalArrayList.get(i).getHospitalID()))
-//        {
-//            doctorArrayList = DataStore.hospital_Screen_HospitalArrayList.get(i).getWorkingdoctorsArrayList();
-//            i = DataStore.hospital_Screen_HospitalArrayList.size();
-//        }
-//        }
-
-//        
-//        for (int i = 0; i < doctorArrayList.size(); i++)
-//        {
-//            if (doctorArrayList.get(i).getDoctorId().equals(DataStore.USERID))
-//            {
-//            doctor = doctorArrayList.get(i);
-//            i = doctorArrayList.size();
-//            }
-//        }
-        
         for (int i = 0; i < DataStore.hospital_Screen_HospitalArrayList.size(); i++)
         {
             temppatientArrayList = DataStore.hospital_Screen_HospitalArrayList.get(i).getEnrolledPatientsArrayList();
@@ -5510,19 +5530,8 @@ else
     }
 
     private void initTabChangeListeners() {
-USER_ROLE = DataStore.USERROLE;
-//int delay = 1000;
-//
-//
-//        if (USER_ROLE.equals("SUPER_ADMIN"))
-//        {
-//
-//           Timer timer = new Timer( delay, (ActionEvent e) -> {
-//    System.out.println("count it" + tabbedPane.getTabCount());
-//
-//});
-//timer.setRepeats( false );
-//timer.start();
+        USER_ROLE = DataStore.USERROLE;
+
         if ((USER_ROLE.equals("SUPER_ADMIN")) || USER_ROLE.equals("COMMUNITY_ADMIN")) {
 
             tabbedPane.remove(tabbedPane.getTabCount() - 2);
