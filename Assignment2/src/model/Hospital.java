@@ -11,8 +11,8 @@ import java.util.ArrayList;
  * @author hp
  */
 public class Hospital extends Community implements DoctorHistory{
-    String hospitalUnqID, hospitalID, hospitalName, hospitalAddress, cityName,  adminusername, adminpassword, hospitalCommunity;
-    int hospitalPincode;
+    String hospitalUnqID, hospitalID, hospitalName, hospitalAddress, cityName,hospitalPincode, adminusername, adminpassword, hospitalCommunity;
+   
     ArrayList<Doctor> DoctorHistory = new ArrayList<>();
     ArrayList<Patient> PatientHistory = new ArrayList<>();
 
@@ -80,11 +80,11 @@ public class Hospital extends Community implements DoctorHistory{
         this.hospitalCommunity = hospitalCommunity;
     }
 
-    public int getHospitalPincode() {
+    public String getHospitalPincode() {
         return hospitalPincode;
     }
 
-    public void setHospitalPincode(int hospitalPincode) {
+    public void setHospitalPincode(String hospitalPincode) {
         this.hospitalPincode = hospitalPincode;
     }
 

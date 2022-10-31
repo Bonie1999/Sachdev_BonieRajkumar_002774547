@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1300, 700]"/>
@@ -25,13 +25,9 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="214" max="-2" attributes="0"/>
-                      <Component id="btnAddHos" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblHosName" min="-2" max="-2" attributes="0"/>
                           <Component id="lblHosId" min="-2" max="-2" attributes="0"/>
@@ -39,30 +35,61 @@
                           <Component id="lblHosCity" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lblHosPin" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lblHosComm" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblHosAdminUName" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblHosAdminPassword" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtHosId" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
+                                  <Component id="txtHosName" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
+                                  <Component id="txtHosAddr" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
+                                  <Component id="txtHosCity" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
+                                  <Component id="txtHosPin" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="cmbHosComm" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="15" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane2" min="-2" pref="175" max="-2" attributes="0"/>
-                          <Component id="lblHosAdmin" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtHosId" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
-                          <Component id="txtHosName" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
-                          <Component id="txtHosAddr" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
-                          <Component id="txtHosCity" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
-                          <Component id="txtHosPin" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
-                          <Component id="txtHosAdminName" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
-                          <Component id="txtHosPassword" alignment="0" min="-2" pref="175" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="txtHosAdminName" linkSize="2" min="-2" pref="175" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblHosAdminUName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblHosAdminPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblHosAdmin" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnAddHos" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Component id="txtAdminPassword" linkSize="2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" pref="858" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="955" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -100,30 +127,28 @@
                           <Component id="txtHosPin" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblHosComm" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbHosComm" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="lblHosAdmin" min="-2" pref="16" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblHosComm" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblHosAdminUName" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtHosAdminName" min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lblHosAdmin" min="-2" pref="16" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="lblHosAdminUName" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="txtHosAdminName" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblHosAdminPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtHosPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtAdminPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Component id="btnAddHos" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="144" max="32767" attributes="0"/>
+              <EmptySpace pref="221" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -199,8 +224,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtHosAdminName">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtHosPassword">
-    </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -255,30 +278,21 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+    <Component class="javax.swing.JComboBox" name="cmbHosComm">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="Boston"/>
+            <StringItem index="1" value="Allston"/>
+            <StringItem index="2" value="Waltham"/>
+          </StringArray>
+        </Property>
+      </Properties>
       <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JList" name="jList1">
-          <Properties>
-            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-              <StringArray count="5">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
-                <StringItem index="4" value="Item 5"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-      </SubComponents>
-    </Container>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="txtAdminPassword">
+    </Component>
   </SubComponents>
 </Form>

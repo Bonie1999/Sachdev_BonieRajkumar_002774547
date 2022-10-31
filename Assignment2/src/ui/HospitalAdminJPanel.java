@@ -4,6 +4,16 @@
  */
 package ui;
 
+import datapackage.DataStore;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import model.Hospital;
+import model.User;
+
 /**
  *
  * @author hp
@@ -13,6 +23,9 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
     /**
      * Creates new form HospitalAdminJPanel
      */
+    private int HOSPITAL_INDEX_TO_UPDATE_DELETE = -1;
+    private DefaultTableModel Hospital_table;
+    private boolean HOSPITAL_SCREEN_TABLE_MOUSE_LISTENER_STATUS = false;
     public HospitalAdminJPanel() {
         initComponents();
     }
@@ -43,11 +56,10 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
         txtHosCity = new javax.swing.JTextField();
         txtHosPin = new javax.swing.JTextField();
         txtHosAdminName = new javax.swing.JTextField();
-        txtHosPassword = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblHosDetails = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        cmbHosComm = new javax.swing.JComboBox<>();
+        txtAdminPassword = new javax.swing.JPasswordField();
 
         setMaximumSize(new java.awt.Dimension(1300, 700));
         setPreferredSize(new java.awt.Dimension(1300, 700));
@@ -97,51 +109,65 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblHosDetails);
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(jList1);
+        cmbHosComm.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boston", "Allston", "Waltham" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addComponent(btnAddHos))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblHosName)
                             .addComponent(lblHosId)
                             .addComponent(lblHosAddr)
                             .addComponent(lblHosCity)
                             .addComponent(lblHosPin)
-                            .addComponent(lblHosComm)
-                            .addComponent(lblHosAdminUName)
-                            .addComponent(lblHosAdminPassword))
-                        .addGap(9, 9, 9)
+                            .addComponent(lblHosComm))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtHosId, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtHosName, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtHosAddr, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtHosCity, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtHosPin, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cmbHosComm, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblHosAdmin)
-                            .addComponent(txtHosId, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtHosName, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtHosAddr, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtHosCity, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtHosPin, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtHosAdminName, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtHosPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(106, 106, 106)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(txtHosAdminName, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblHosAdminUName)
+                                    .addComponent(lblHosAdminPassword))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(9, 9, 9)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblHosAdmin)
+                                            .addComponent(btnAddHos)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(txtAdminPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblTitle)
                         .addContainerGap())
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 858, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 955, Short.MAX_VALUE)))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtAdminPassword, txtHosAdminName});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -170,37 +196,59 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
                             .addComponent(lblHosPin)
                             .addComponent(txtHosPin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblHosComm)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblHosAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblHosAdminUName))
-                            .addComponent(txtHosAdminName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
+                            .addComponent(cmbHosComm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(lblHosAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblHosAdminUName)
+                            .addComponent(txtHosAdminName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblHosAdminPassword)
-                            .addComponent(txtHosPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36)
+                            .addComponent(txtAdminPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(38, 38, 38)
                         .addComponent(btnAddHos))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(144, Short.MAX_VALUE))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddHosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHosActionPerformed
         // TODO add your handling code here:
+        Hospital hos = new Hospital();
+        hos.setHospitalUnqID(DataStore.generateUnqID());
+        hos.setHospitalID(txtHosId.getText().trim());
+        hos.setHospitalName(txtHosName.getText().trim());
+        hos.setHospitalAddress(txtHosAddr.getText().trim());
+        hos.setCityName(txtHosCity.getText().trim());
+        hos.setHospitalPincode(txtHosPin.getText().trim());
+        hos.setHospitalCommunity(cmbHosComm.getSelectedItem().toString().trim());
+        hos.setAdminusername(txtHosAdminName.getText().trim());
+        hos.setAdminpassword(new String(txtAdminPassword.getPassword()).trim());
+        DataStore.HospitalArrayList.add(hos);
+        System.out.println(hos);
+        
+        User user = new User();
+        
+        user.setUnqId(DataStore.generateUnqID());
+        user.setId(txtHosAdminName.getText().trim());
+        user.setPassword(new String(txtAdminPassword.getPassword()).trim());
+        user.setRole("HOSPITAL");
+        
+        DataStore.userArrayList.add(user);
+        
+        System.out.println(user);
+        initSuperUserAddHospitalScreen(DataStore.HospitalArrayList);
     }//GEN-LAST:event_btnAddHosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddHos;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JComboBox<String> cmbHosComm;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblHosAddr;
     private javax.swing.JLabel lblHosAdmin;
     private javax.swing.JLabel lblHosAdminPassword;
@@ -212,12 +260,184 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblHosPin;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTable tblHosDetails;
+    private javax.swing.JPasswordField txtAdminPassword;
     private javax.swing.JTextField txtHosAddr;
     private javax.swing.JTextField txtHosAdminName;
     private javax.swing.JTextField txtHosCity;
     private javax.swing.JTextField txtHosId;
     private javax.swing.JTextField txtHosName;
-    private javax.swing.JTextField txtHosPassword;
     private javax.swing.JTextField txtHosPin;
     // End of variables declaration//GEN-END:variables
+
+    private void initSuperUserAddHospitalScreen(ArrayList<Hospital> HospitalArrayList) {
+        if (DataStore.ROLE.equals("COMMUNITY_ADMIN") && DataStore.USR_ID.equals("boston_admin"))
+        {
+            cmbHosComm.removeAllItems();
+            cmbHosComm.addItem("Boston");
+        }else if(DataStore.ROLE.equals("COMMUNITY_ADMIN") && DataStore.USR_ID.equals("allston_admin"))
+        {
+            cmbHosComm.removeAllItems();
+            cmbHosComm.addItem("Allston");
+        }else if(DataStore.ROLE.equals("COMMUNITY_ADMIN") && DataStore.USR_ID.equals("waltham_admin"))
+        {
+            cmbHosComm.removeAllItems();
+            cmbHosComm.addItem("Waltham");
+        }
+        HOSPITAL_INDEX_TO_UPDATE_DELETE = -1;
+//        superAdminDashboardScreen_DeleteUpdatePanel.setVisible(false);
+        txtHosId.setText("");
+        txtAdminPassword.setText("");
+        txtHosName.setText("");
+        txtHosAddr.setText("");
+        txtHosCity.setText("");
+        txtHosPin.setText("");
+        txtHosAdminName.setText("");
+        cmbHosComm.setSelectedIndex(0);
+        Hospital_table = new DefaultTableModel(new String[]{"#", "ID", "Name", "City", "Pincode"}, 0);
+        tblHosDetails.setModel(Hospital_table);
+        
+        if (!HospitalArrayList.isEmpty()) {
+//            showAddHospitalElements();
+            setDataOnAllHospitalsTable("viewAllHospitalsTable", Hospital_table, HospitalArrayList, tblHosDetails);
+        }
+    }
+    
+    private void setDataOnAllHospitalsTable(String tableNameToSet, DefaultTableModel defaultTableModel, ArrayList<Hospital> tableDataArrayList, JTable table) {
+        table.setName(tableNameToSet);
+        table.setPreferredSize(null);
+
+        switch (table.getName()) {
+            case "viewAllHospitalsTable" -> {
+                for (int i = 0; i < tableDataArrayList.size(); i++) {
+                    
+                    if (DataStore.ROLE.equals("COMMUNITY_ADMIN") && DataStore.USR_ID.equals("boston_admin"))
+                    {
+                           if (tableDataArrayList.get(i).getHospitalCommunity().equals("Boston"))
+                           {
+                        defaultTableModel.addRow(new String[]{String.valueOf(i + 1),
+                        tableDataArrayList.get(i).getHospitalID(),
+                        tableDataArrayList.get(i).getHospitalName(),
+                        tableDataArrayList.get(i).getCityName(),
+                        String.valueOf(tableDataArrayList.get(i).getHospitalPincode())
+                    });
+                           }
+                    }
+                    else if (DataStore.ROLE.equals("COMMUNITY_ADMIN") && DataStore.USR_ID.equals("allston_admin"))
+                    {
+                    if (tableDataArrayList.get(i).getHospitalCommunity().equals("Mountain View"))
+                           {
+                        defaultTableModel.addRow(new String[]{String.valueOf(i + 1),
+                        tableDataArrayList.get(i).getHospitalID(),
+                        tableDataArrayList.get(i).getHospitalName(),
+                        tableDataArrayList.get(i).getCityName(),
+                        String.valueOf(tableDataArrayList.get(i).getHospitalPincode())
+                    });                  
+                           }
+                    }
+                    else if (DataStore.ROLE.equals("COMMUNITY_ADMIN") && DataStore.USR_ID.equals("waltham_admin"))
+                    {
+                    if (tableDataArrayList.get(i).getHospitalCommunity().equals("Mountain View"))
+                           {
+                        defaultTableModel.addRow(new String[]{String.valueOf(i + 1),
+                        tableDataArrayList.get(i).getHospitalID(),
+                        tableDataArrayList.get(i).getHospitalName(),
+                        tableDataArrayList.get(i).getCityName(),
+                        String.valueOf(tableDataArrayList.get(i).getHospitalPincode())
+                    });                  
+                           }
+                    }                    
+                    else {
+                                            defaultTableModel.addRow(new String[]{String.valueOf(i + 1),
+                        tableDataArrayList.get(i).getHospitalID(),
+                        tableDataArrayList.get(i).getHospitalName(),
+                        tableDataArrayList.get(i).getCityName(),
+                        String.valueOf(tableDataArrayList.get(i).getHospitalPincode())
+                    });   
+                    }
+                    
+  
+                
+                
+                }
+                defaultTableModel.fireTableDataChanged();
+                table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+                table.getColumnModel().getColumn(0).setPreferredWidth(5);
+                table.getColumnModel().getColumn(1).setPreferredWidth(5);
+                table.getColumnModel().getColumn(2).setPreferredWidth(120);
+                table.getColumnModel().getColumn(3).setPreferredWidth(30);
+                table.getColumnModel().getColumn(4).setPreferredWidth(30);
+                
+                if (!HOSPITAL_SCREEN_TABLE_MOUSE_LISTENER_STATUS){
+                table.addMouseListener(new MouseAdapter() {
+                    
+                public void mousePressed(MouseEvent mouseEvent) {
+                    JTable table = (JTable) mouseEvent.getSource();
+                    if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
+                        Hospital hospitalToSelect = tableDataArrayList.get(table.getSelectedRow());
+                            txtHosId.setText(hospitalToSelect.getHospitalID());
+                            txtAdminPassword.setText(hospitalToSelect.getAdminpassword());
+                            txtHosName.setText(hospitalToSelect.getHospitalName());
+                            txtHosAddr.setText(hospitalToSelect.getHospitalAddress());
+                            txtHosCity.setText(hospitalToSelect.getCityName());
+                            txtHosPin.setText(String.valueOf(hospitalToSelect.getHospitalPincode()));
+                            cmbHosComm.setSelectedItem(hospitalToSelect.getHospitalCommunity());
+                            System.out.println("item is " + hospitalToSelect.getHospitalCommunity());
+                            HOSPITAL_INDEX_TO_UPDATE_DELETE = getHospitalIndexAccordingToHospitalID(tableDataArrayList.get(table.getSelectedRow()).getHospitalID());
+//                            HOSPITAL_INDEX_TO_UPDATE_DELETE = table.getSelectedRow();
+                            System.out.println("index " + HOSPITAL_INDEX_TO_UPDATE_DELETE);
+                            HOSPITAL_SCREEN_TABLE_MOUSE_LISTENER_STATUS = true;
+//                            superAdminDashboardScreen_DeleteUpdatePanel.setVisible(true);
+                            table.clearSelection();
+                    }
+                }
+            }); }
+                
+            }
+//            case "Person_Screen_AllHospitalsTable" -> {
+//                                   for (int i = 0; i < tableDataArrayList.size(); i++) {
+//                    defaultTableModel.addRow(new String[]{String.valueOf(i + 1),
+//                        tableDataArrayList.get(i).getHospitalID(),
+//                        tableDataArrayList.get(i).getHospitalName(),
+//                        tableDataArrayList.get(i).getHospitalCity(),
+//                        String.valueOf(tableDataArrayList.get(i).getHospitalPincode())
+//                    });
+//                }
+//                defaultTableModel.fireTableDataChanged();
+//                table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+//                table.getColumnModel().getColumn(0).setPreferredWidth(5);
+//                table.getColumnModel().getColumn(1).setPreferredWidth(5);
+//                table.getColumnModel().getColumn(2).setPreferredWidth(120);
+//                table.getColumnModel().getColumn(3).setPreferredWidth(30);
+//                table.getColumnModel().getColumn(4).setPreferredWidth(30);
+//            table.addMouseListener(new MouseAdapter() {
+//                public void mousePressed(MouseEvent mouseEvent) {
+//                    JTable table = (JTable) mouseEvent.getSource();
+//                    if (mouseEvent.getClickCount() == 2 && table.getSelectedRow() != -1) {
+//                        Hospital hospitalToSelect = tableDataArrayList.get(table.getSelectedRow());
+//                        if (!hospitalToSelect.getWorkingdoctorsArrayList().isEmpty()){
+//                        autofillPatientRegistrationDetails(hospitalToSelect);
+//
+//                        }
+//                        else{
+//                        JOptionPane.showMessageDialog(null, "No doctors found in this hospital. Choose another hospital.");
+//                        }
+//                    }
+//                }
+//            });
+//            }
+
+        }
+    }
+    private int getHospitalIndexAccordingToHospitalID(String hospitalID)
+    {
+            for (int i = 0; i < DataStore.HospitalArrayList.size(); i++)
+        {
+        if (hospitalID.equals(DataStore.HospitalArrayList.get(i).getHospitalID()))
+        {
+            return i;
+        }
+
+        }
+        return -1;
+    }
 }

@@ -8,14 +8,14 @@ import model.Hospital;
 import model.Person;
 import model.User;
 import java.util.ArrayList;
-//import java.util.UnqID;
+import java.util.UUID;
 
 /**
  *
  * @author hp
  */
 public class DataStore {
-    public static ArrayList<Hospital> hospital_Screen_HospitalArrayList = new ArrayList<>();
+    public static ArrayList<Hospital> HospitalArrayList = new ArrayList<>();
     public static ArrayList<Person> person_registration_ArrayList = new ArrayList<>();
     public static ArrayList<User> userArrayList = new ArrayList<>();
     public static String ROLE = "";
@@ -25,4 +25,8 @@ public class DataStore {
 //    public static String generateUnqID() {
 //        return UnqID.randomUnqID().toString();
 //    }
+
+    public static String generateUnqID() {
+        return UUID.randomUUID().toString();
+    }
 }
