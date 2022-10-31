@@ -2,22 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package models;
 
 /**
  *
- * @author hp
+ * @author rinki
  */
 public class User {
-    String id, password, unqId, role;
-
-    public String getUnqId() {
-        return unqId;
-    }
-
-    public void setUnqId(String unqId) {
-        this.unqId = unqId;
-    }
+    String id, password, uuid, role;
 
     public String getId() {
         return id;
@@ -33,6 +25,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getRole() {

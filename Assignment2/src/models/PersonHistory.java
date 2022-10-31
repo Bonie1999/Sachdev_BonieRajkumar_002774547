@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package models;
 
 /**
  *
- * @author hp
+ * @author rinki
  */
-public class PersonContact {
+public class PersonHistory {
     public static int id;
     public static long phone;
     public static long pincode;
@@ -18,7 +18,7 @@ public class PersonContact {
     }
 
     public static void setId(int id) {
-        PersonContact.id = id;
+        PersonHistory.id = id;
     }
 
     public static long getPhone() {
@@ -26,7 +26,7 @@ public class PersonContact {
     }
 
     public static void setPhone(long phone) {
-        PersonContact.phone = phone;
+        PersonHistory.phone = phone;
     }
 
     public static long getPincode() {
@@ -34,8 +34,9 @@ public class PersonContact {
     }
 
     public static void setPincode(long pincode) {
-        PersonContact.pincode = pincode;
+        PersonHistory.pincode = pincode;
     }
+    
     
     
 }

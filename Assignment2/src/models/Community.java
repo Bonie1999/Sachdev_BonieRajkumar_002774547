@@ -2,28 +2,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package models;
 
 /**
  *
- * @author hp
+ * @author rinki
  */
 public class Community extends City{
+
+    
     static String hospitalCommunity;
 
-    public String getHospitalCommunity() {
+    public  String getHospitalCommunity() {
         return hospitalCommunity;
     }
 
-    public void setHospitalCommunity(String hospitalCommunity) {
+    public  void setHospitalCommunity(String hospitalCommunity) {
         Community.hospitalCommunity = hospitalCommunity;
     }
-
-    public String getCityName() {
+    
+    
+    public static String getCityName() {
         return cityName;
     }
 
-    public void setCityName(String cityName) {
+    public static void setCityName(String cityName) {
         City.cityName = cityName;
     }
     

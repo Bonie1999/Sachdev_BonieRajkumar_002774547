@@ -2,14 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package model;
+package models;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author hp
+ * @author rinki
  */
 public interface PatientHistory {
-    ArrayList<Patient> Patient_Directory = new ArrayList<>();
+    
+     ArrayList<Patient> Patient_Directory = new ArrayList<>();
+    
 }

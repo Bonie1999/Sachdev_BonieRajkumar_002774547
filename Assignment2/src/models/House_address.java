@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package models;
 
 /**
  *
- * @author hp
+ * @author rinki
  */
-public class HouseAddress {
+public class House_address {
     static String patientAddress;
 
     public static String getPatientAddress() {
@@ -16,6 +16,7 @@ public class HouseAddress {
     }
 
     public static void setPatientAddress(String patientAddress) {
-        HouseAddress.patientAddress = patientAddress;
+        House_address.patientAddress = patientAddress;
     }
+    
 }

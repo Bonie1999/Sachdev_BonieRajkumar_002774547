@@ -2,35 +2,42 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model;
+package models;
 
 import java.util.ArrayList;
 
 /**
  *
- * @author hp
+ * @author rinki
  */
 public class Doctor {
-    String hospitalUnqID, hospitalId, hospitalName, doctorUnqID, doctorId, doctorName, doctorPhone, password;
+    String hospitalUUID, hospitalId, hospitalName, doctorUUID, doctorId, doctorName, doctorPhone, departmentName, password;
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getDoctorUUID() {
+        return doctorUUID;
+    }
+
+    public String getHospitalUUID() {
+        return hospitalUUID;
+    }
+
+    public void setHospitalUUID(String hospitalUUID) {
+        this.hospitalUUID = hospitalUUID;
+    }
+
+    public void setDoctorUUID(String doctorUUID) {
+        this.doctorUUID = doctorUUID;
+    }
     ArrayList<Patient> assignedPatients = new ArrayList<>();
-    public String getHospitalUnqID() {
-        return hospitalUnqID;
-    }
 
-    public void setHospitalUnqID(String hospitalUnqID) {
-        this.hospitalUnqID = hospitalUnqID;
-    }
-
-    public String getDoctorUnqID() {
-        return doctorUnqID;
-    }
-
-    public void setDoctorUnqID(String doctorUnqID) {
-        this.doctorUnqID = doctorUnqID;
-    }
-
-    
-    
     public String getHospitalId() {
         return hospitalId;
     }
@@ -71,14 +78,14 @@ public class Doctor {
         this.doctorPhone = doctorPhone;
     }
 
-    public String getPassword() {
-        return password;
+    public String getDepartmentName() {
+        return departmentName;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
     }
-    
+
     public ArrayList<Patient> getAssignedPatients() {
         return assignedPatients;
     }
