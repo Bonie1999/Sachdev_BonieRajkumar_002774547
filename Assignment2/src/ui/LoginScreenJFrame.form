@@ -38,15 +38,15 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
+                          <Component id="lblRole" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
                           <Component id="lblPassword" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
                           <Component id="lblUserName" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtUserName" min="-2" pref="251" max="-2" attributes="0"/>
-                          <Component id="txtPassword" min="-2" pref="251" max="-2" attributes="0"/>
-                          <Component id="jComboBox1" min="-2" pref="206" max="-2" attributes="0"/>
+                          <Component id="txtUserName" linkSize="1" min="-2" pref="251" max="-2" attributes="0"/>
+                          <Component id="cmbRoleBox" min="-2" pref="206" max="-2" attributes="0"/>
+                          <Component id="txtPassword" linkSize="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -71,8 +71,8 @@
               </Group>
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbRoleBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblRole" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -98,8 +98,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtPassword">
-    </Component>
     <Component class="javax.swing.JTextField" name="txtUserName">
     </Component>
     <Component class="javax.swing.JLabel" name="lblPassword">
@@ -117,25 +115,30 @@
         <Property name="text" type="java.lang.String" value="LOGIN"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="lblRole">
       <Properties>
         <Property name="text" type="java.lang.String" value="Role:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="cmbRoleBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
+          <StringArray count="7">
+            <StringItem index="0" value="-----Please Select-----"/>
+            <StringItem index="1" value="System Admin"/>
+            <StringItem index="2" value="Doctor"/>
+            <StringItem index="3" value="Patient"/>
+            <StringItem index="4" value="Person"/>
+            <StringItem index="5" value="Community Admin"/>
+            <StringItem index="6" value="Hospital Admin"/>
           </StringArray>
         </Property>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="txtPassword">
     </Component>
   </SubComponents>
 </Form>

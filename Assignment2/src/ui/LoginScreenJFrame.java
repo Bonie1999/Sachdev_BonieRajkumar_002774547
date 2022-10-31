@@ -4,6 +4,8 @@
  */
 package ui;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author hp
@@ -29,13 +31,13 @@ public class LoginScreenJFrame extends javax.swing.JFrame {
 
         btnRegister = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
-        txtPassword = new javax.swing.JTextField();
         txtUserName = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
         lblUserName = new javax.swing.JLabel();
         lblLogin = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        lblRole = new javax.swing.JLabel();
+        cmbRoleBox = new javax.swing.JComboBox<>();
+        txtPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,9 +56,9 @@ public class LoginScreenJFrame extends javax.swing.JFrame {
 
         lblLogin.setText("LOGIN");
 
-        jLabel1.setText("Role:");
+        lblRole.setText("Role:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbRoleBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----Please Select-----", "System Admin", "Doctor", "Patient", "Person", "Community Admin", "Hospital Admin" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,16 +77,19 @@ public class LoginScreenJFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(184, 184, 184)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblRole, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblUserName))
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(cmbRoleBox, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(779, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtPassword, txtUserName});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -100,8 +105,8 @@ public class LoginScreenJFrame extends javax.swing.JFrame {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(cmbRoleBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRole))
                 .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLogin)
@@ -115,8 +120,17 @@ public class LoginScreenJFrame extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         //        SystemAdminDashboardJPanel SysDashboard = new SystemAdminDashboardJPanel();
-        dispose();
-        new SystemAdminDashboardJFrame().setVisible(true);
+        String username = txtUserName.getText().trim();
+        String password = new String(txtPassword.getPassword());
+        String cbValue = cmbRoleBox.getSelectedItem().toString();
+//        System.out.println("username " + username + " password " + password);
+        if (username.equals("bonie") && password.equals("123") && cbValue.equals("System Admin")) {
+//            DataStorageClass.USERROLE = "SUPER_ADMIN";
+            dispose();
+            new SystemAdminDashboardJFrame().setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(this, "Please enter the correct credentials");
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
@@ -157,12 +171,12 @@ public class LoginScreenJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegister;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> cmbRoleBox;
     private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblRole;
     private javax.swing.JLabel lblUserName;
-    private javax.swing.JTextField txtPassword;
+    private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUserName;
     // End of variables declaration//GEN-END:variables
 }
