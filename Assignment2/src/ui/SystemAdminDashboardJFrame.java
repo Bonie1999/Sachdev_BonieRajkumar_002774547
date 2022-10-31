@@ -34,10 +34,10 @@ public class SystemAdminDashboardJFrame extends javax.swing.JFrame {
         btnPatient = new javax.swing.JButton();
         btnEncounter = new javax.swing.JButton();
         btnAppmtStatus = new javax.swing.JButton();
+        btnLogout = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(1300, 700));
 
         btnCommunity.setText("Community");
         btnCommunity.addActionListener(new java.awt.event.ActionListener() {
@@ -81,6 +81,13 @@ public class SystemAdminDashboardJFrame extends javax.swing.JFrame {
             }
         });
 
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -93,7 +100,8 @@ public class SystemAdminDashboardJFrame extends javax.swing.JFrame {
                     .addComponent(btnDoctor)
                     .addComponent(btnPatient)
                     .addComponent(btnEncounter)
-                    .addComponent(btnAppmtStatus))
+                    .addComponent(btnAppmtStatus)
+                    .addComponent(btnLogout))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -111,7 +119,9 @@ public class SystemAdminDashboardJFrame extends javax.swing.JFrame {
                 .addComponent(btnEncounter)
                 .addGap(18, 18, 18)
                 .addComponent(btnAppmtStatus)
-                .addContainerGap(408, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnLogout)
+                .addContainerGap(367, Short.MAX_VALUE))
         );
 
         splitPane.setLeftComponent(jPanel1);
@@ -179,6 +189,12 @@ public class SystemAdminDashboardJFrame extends javax.swing.JFrame {
         splitPane.setRightComponent(CommJPanel);
     }//GEN-LAST:event_btnCommunityActionPerformed
 
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        new LoginScreenJFrame().setVisible(true);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -220,6 +236,7 @@ public class SystemAdminDashboardJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnDoctor;
     private javax.swing.JButton btnEncounter;
     private javax.swing.JButton btnHospital;
+    private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnPatient;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

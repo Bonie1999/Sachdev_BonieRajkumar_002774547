@@ -5,6 +5,8 @@
 package ui;
 
 import javax.swing.JOptionPane;
+import datapackage.DataStore;
+import model.User;
 
 /**
  *
@@ -125,11 +127,53 @@ public class LoginScreenJFrame extends javax.swing.JFrame {
         String cbValue = cmbRoleBox.getSelectedItem().toString();
 //        System.out.println("username " + username + " password " + password);
         if (username.equals("bonie") && password.equals("123") && cbValue.equals("System Admin")) {
-//            DataStorageClass.USERROLE = "SUPER_ADMIN";
+//            DataStore.ROLE = "SUPER_ADMIN";
             dispose();
             new SystemAdminDashboardJFrame().setVisible(true);
-        }else{
-            JOptionPane.showMessageDialog(this, "Please enter the correct credentials");
+        }else        if (!DataStore.userArrayList.isEmpty()) {
+            for (int i = 0; i < DataStore.userArrayList.size(); i++) {
+               System.out.println("username stored " + DataStore.userArrayList.get(i).getId() + " password stored " + DataStore.userArrayList.get(i).getPassword()
+               + " role " + DataStore.userArrayList.get(i).getRole() + " size " + DataStore.userArrayList.size());
+                if (DataStore.userArrayList.get(i).getId().equals(username) && DataStore.userArrayList.get(i).getPassword().equals(password)) {
+                    User user = new User();
+                    user = DataStore.userArrayList.get(i);
+                    switch (user.getRole()) {
+
+                        case "Hospital Admin" -> {
+                            DataStore.ROLE = "Hospital Admin";
+                            DataStore.USR_ID = user.getId();
+                            dispose();
+                            new DoctorAdminDasboardJFrame().setVisible(true);
+//                            new SuperAdminDashboardScreen().setVisible(true);
+                        }
+                        
+                        case "DOCTOR" -> {
+                            DataStore.ROLE = "DOCTOR";
+                            DataStore.USR_ID = user.getId();
+                            dispose();
+//                            new SuperAdminDashboardScreen().setVisible(true);
+                        } 
+                        case "PATIENT" -> {
+                            DataStore.ROLE = "PATIENT";
+                            DataStore.USR_ID = user.getId();
+                            dispose();
+//                            new SuperAdminDashboardScreen().setVisible(true);
+                        }
+                        case "Community Admin" -> {
+                            DataStore.ROLE = "Community Admin";
+                            DataStore.USR_ID = user.getId();
+                            dispose();
+                            new CommunityJFrame().setVisible(true);
+//                            new SuperAdminDashboardScreen().setVisible(true);
+                        }
+                    }
+i = DataStore.userArrayList.size();
+                }
+                
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "No Users Found. Register First");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 

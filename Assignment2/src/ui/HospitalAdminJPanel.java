@@ -28,6 +28,7 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
     private boolean HOSPITAL_SCREEN_TABLE_MOUSE_LISTENER_STATUS = false;
     public HospitalAdminJPanel() {
         initComponents();
+        initSuperUserAddHospitalScreen(DataStore.HospitalArrayList);
     }
 
     /**
@@ -236,7 +237,7 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
         user.setUnqId(DataStore.generateUnqID());
         user.setId(txtHosAdminName.getText().trim());
         user.setPassword(new String(txtAdminPassword.getPassword()).trim());
-        user.setRole("HOSPITAL");
+        user.setRole("Hospital Admin");
         
         DataStore.userArrayList.add(user);
         
@@ -270,15 +271,15 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void initSuperUserAddHospitalScreen(ArrayList<Hospital> HospitalArrayList) {
-        if (DataStore.ROLE.equals("COMMUNITY_ADMIN") && DataStore.USR_ID.equals("boston_admin"))
+        if (DataStore.ROLE.equals("Community Admin") && DataStore.USR_ID.equals("boston_admin"))
         {
             cmbHosComm.removeAllItems();
             cmbHosComm.addItem("Boston");
-        }else if(DataStore.ROLE.equals("COMMUNITY_ADMIN") && DataStore.USR_ID.equals("allston_admin"))
+        }else if(DataStore.ROLE.equals("Community Admin") && DataStore.USR_ID.equals("allston_admin"))
         {
             cmbHosComm.removeAllItems();
             cmbHosComm.addItem("Allston");
-        }else if(DataStore.ROLE.equals("COMMUNITY_ADMIN") && DataStore.USR_ID.equals("waltham_admin"))
+        }else if(DataStore.ROLE.equals("Community Admin") && DataStore.USR_ID.equals("waltham_admin"))
         {
             cmbHosComm.removeAllItems();
             cmbHosComm.addItem("Waltham");
@@ -310,7 +311,7 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
             case "viewAllHospitalsTable" -> {
                 for (int i = 0; i < tableDataArrayList.size(); i++) {
                     
-                    if (DataStore.ROLE.equals("COMMUNITY_ADMIN") && DataStore.USR_ID.equals("boston_admin"))
+                    if (DataStore.ROLE.equals("Community Admin") && DataStore.USR_ID.equals("boston_admin"))
                     {
                            if (tableDataArrayList.get(i).getHospitalCommunity().equals("Boston"))
                            {
@@ -322,7 +323,7 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
                     });
                            }
                     }
-                    else if (DataStore.ROLE.equals("COMMUNITY_ADMIN") && DataStore.USR_ID.equals("allston_admin"))
+                    else if (DataStore.ROLE.equals("Community Admin") && DataStore.USR_ID.equals("allston_admin"))
                     {
                     if (tableDataArrayList.get(i).getHospitalCommunity().equals("Mountain View"))
                            {
@@ -334,7 +335,7 @@ public class HospitalAdminJPanel extends javax.swing.JPanel {
                     });                  
                            }
                     }
-                    else if (DataStore.ROLE.equals("COMMUNITY_ADMIN") && DataStore.USR_ID.equals("waltham_admin"))
+                    else if (DataStore.ROLE.equals("Community Admin") && DataStore.USR_ID.equals("waltham_admin"))
                     {
                     if (tableDataArrayList.get(i).getHospitalCommunity().equals("Mountain View"))
                            {
