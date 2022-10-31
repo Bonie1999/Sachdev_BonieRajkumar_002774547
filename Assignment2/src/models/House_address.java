@@ -6,7 +6,7 @@ package models;
 
 /**
  *
- * @author rinki
+ * @author hp
  */
 public class House_address {
     static String patientAddress;

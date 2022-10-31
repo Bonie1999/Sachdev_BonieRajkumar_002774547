@@ -11,7 +11,7 @@ import datastore.DataStore;
 
 /**
  *
- * @author rinki
+ * @author hp
  */
 public class LoginScreen extends javax.swing.JFrame {
 

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author rinki
+ * @author hp
  */
 public class Hospital extends Community implements DoctorHistory{
     String hospitalUUID, hospitalID, hospitalName, hospitalAddress, cityName,  adminusername, adminpassword, hospitalCommunity;

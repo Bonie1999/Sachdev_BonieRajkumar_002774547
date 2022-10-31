@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author rinki
+ * @author hp
  */
 public class Doctor {
     String hospitalUUID, hospitalId, hospitalName, doctorUUID, doctorId, doctorName, doctorPhone, departmentName, password;

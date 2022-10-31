@@ -6,7 +6,7 @@ package models;
 
 /**
  *
- * @author rinki
+ * @author hp
  */
 public class Person  {
     String id, name, phone, address, pincode, department, doctorname, doctoruuid, hospitalname, hospitalid, hospitaluuid, role, password, doctorid, status, community;

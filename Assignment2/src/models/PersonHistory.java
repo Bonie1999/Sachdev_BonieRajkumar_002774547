@@ -6,7 +6,7 @@ package models;
 
 /**
  *
- * @author rinki
+ * @author hp
  */
 public class PersonHistory {
     public static int id;
