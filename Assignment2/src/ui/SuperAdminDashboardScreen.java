@@ -401,7 +401,6 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
         jScrollPane1.setBackground(new java.awt.Color(51, 51, 51));
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
 
-        superadmin_Hospitals_Screen_All_Hospitals_Table.setForeground(new java.awt.Color(255, 255, 255));
         superadmin_Hospitals_Screen_All_Hospitals_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
@@ -3349,6 +3348,7 @@ public class SuperAdminDashboardScreen extends javax.swing.JFrame {
 
     private void hospital_Screen_update_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hospital_Screen_update_buttonActionPerformed
 
+        
 if(validatehospitalfields()){
         // TODO add your handling code here:
                 if (HOSPITAL_INDEX_TO_UPDATE_DELETE != -1)
@@ -3735,14 +3735,14 @@ else
     
     
     public boolean validatehospitalfields()//Hospital Window superadmin
-  {String password = new String(hospital_Screen_password_TextField.getPassword()).trim();
+  {
+        String password = new String(hospital_Screen_password_TextField.getPassword()).trim();
   
   int x;
     try {
         x = Integer.parseInt( hospital_Screen_hospitalPincodeTextField.getText());
     } catch (NumberFormatException nfe) {
             
-//            JOptionPane.showMessageDialog(null, "enter integer");
             return false;
     }
     if (hospital_Screen_HospitalIdTextField.getText().trim().isEmpty()||hospital_Screen_hospitalNameTextField.getText().trim().isEmpty()
@@ -3788,7 +3788,7 @@ else
         initSuperUserAddHospitalScreen(DataStore.hospital_Screen_HospitalArrayList);
     }//GEN-LAST:event_hospital_Screen_add_hospital_buttonActionPerformed
 else
-            JOptionPane.showMessageDialog(null, "Invalid Data");
+            JOptionPane.showMessageDialog(null, "Please enter all the details in hospital records");
         
     }
     private void superadmin_Patient_Screen_Patient_DepartmentComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_superadmin_Patient_Screen_Patient_DepartmentComboBoxActionPerformed
@@ -3919,12 +3919,7 @@ else
                         
                        
                         
-//                    ArrayList<Encounter> tempencounterArrayList = new ArrayList<>();
-//                    tempencounterArrayList = DataStore.hospital_Screen_HospitalArrayList.get(i).getEnrolledPatientsArrayList().get(j).getEncountersArraylist();
-//                    tempencounterArrayList.add(encounter);
-//                    DataStore.hospital_Screen_HospitalArrayList.get(i).getEnrolledPatientsArrayList().get(j).setEncountersArraylist(tempencounterArrayList);
-//                    superadmin_Encounters_Screen_TableDataDefaultTableModel = new DefaultTableModel(new String[]{"#", "Time", "Temperature", "Blood Pressure"}, 0);
-//                    superadmin_Encounters_Screen_EncounterHistoryTable.setModel(superadmin_Encounters_Screen_TableDataDefaultTableModel);
+
                     superadmin_Encounters_Screen_TableDataDefaultTableModel = new DefaultTableModel(new String[]{"#", "Time", "Temperature", "Blood Pressure"}, 0);
                     superadmin_Encounters_Screen_EncounterHistoryTable.setModel(superadmin_Encounters_Screen_TableDataDefaultTableModel);
                     DataStore.hospital_Screen_HospitalArrayList.get(i).getEnrolledPatientsArrayList().get(j).getEncountersArraylist().add(encounter);
